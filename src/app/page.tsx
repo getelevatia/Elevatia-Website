@@ -85,7 +85,7 @@ export default function Home() {
                   title: "Download & Set Your Goals",
                   description: "Choose from our curated wellness paths or create custom goals tailored to your lifestyle. Whether it's fitness, nutrition, mindfulness, or sleep - we've got you covered.",
                   image: "/step-1-paths.png",
-                  alt: "Elevatia journeys hub with your chosen paths"
+                  alt: "Elevatia wellness areas: nutrition, fitness, hormonal, mental, maternal and sleep"
                 },
                 {
                   step: "Step 2",
