@@ -53,8 +53,8 @@ export default function Home() {
               {/* iPhone with Real App Screenshot */}
               <div className="relative">
                 <Image
-                  src="/hero-phones.png"
-                  alt="Elevatia app: Daily Sow, home, and Crucible screens"
+                  src="/hero-phones-2.png"
+                  alt="Elevatia app: device connections, home with Daily Sow, and Crucible screens"
                   width={2280}
                   height={1840}
                   className="rounded-3xl interactive-lift max-w-4xl mx-auto w-full"
@@ -84,21 +84,21 @@ export default function Home() {
                   step: "Step 1",
                   title: "Download & Set Your Goals",
                   description: "Choose from our curated wellness paths or create custom goals tailored to your lifestyle. Whether it's fitness, nutrition, mindfulness, or sleep - we've got you covered.",
-                  image: "/step-1-paths.png",
+                  image: "/step-1-areas.png",
                   alt: "Elevatia wellness areas: nutrition, fitness, hormonal, mental, maternal and sleep"
                 },
                 {
                   step: "Step 2",
                   title: "Complete Your Daily Sow",
                   description: "Each morning the Sky Model understands you and where your body is at, then hands you one right move for the day.",
-                  image: "/step-2-sow.png",
-                  alt: "Elevatia Daily Sow readout with one right move"
+                  image: "/step-2-daily-sow.png",
+                  alt: "Elevatia home feed with the Daily Sow readout and one right move"
                 },
                 {
                   step: "Step 3",
                   title: "Achieve & Compete",
                   description: "Reach your milestones, earn achievements, and compete with friends in our Crucible feature. Turn your wellness journey into an engaging, social experience.",
-                  image: "/step-3-crucible.png",
+                  image: "/step-3-crucible-2.png",
                   alt: "Elevatia Crucible groups and competitions"
                 }
               ].map((item, index) => {
