@@ -26,7 +26,7 @@ const FOUNDERS = [
     name: 'Zackhary Francois',
     role: 'Co-founder & CEO',
     photo: '/team-zackhary-francois-2.png',
-    bio: 'Zackhary studied Neuroscience and Computer Science at Georgia Tech, where he published genomics research through NASA’s PCE3 Consortium. A data strategist with experience at Wayflyer, Bank of America, and Capital One, and a former multi-sport athlete, he started Elevatia to solve the hardest problem in self improvement: consistency.',
+    bio: 'Neuroscience and Computer Science at Georgia Tech. Published genomics researcher. Former multi-sport athlete. As CEO, he sets the vision and builds the Sky Model that powers Elevatia.',
     linkedin: 'https://www.linkedin.com/in/zackhary-francois-78050116a/',
   },
   {
