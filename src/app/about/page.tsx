@@ -80,7 +80,7 @@ export default function AboutPage() {
             <div className="card-enhanced">
               <div className="w-28 h-28 rounded-full mx-auto mb-6 overflow-hidden">
                 <Image
-                  src="/team-zackhary-francois.png"
+                  src="/team-zackhary-francois-2.png"
                   alt="Zackhary Francois"
                   width={112}
                   height={112}
