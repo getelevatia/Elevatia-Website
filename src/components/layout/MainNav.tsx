@@ -19,7 +19,7 @@ export default function MainNav() {
           <div className="flex items-center">
             <Logo />
           </div>
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="flex items-center space-x-4 sm:space-x-8">
             <Link
               href="/team"
               className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
