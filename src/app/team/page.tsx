@@ -50,7 +50,7 @@ const ADVISORS = [
     name: 'Gina Fratarcangeli',
     role: 'Advisory Board',
     photo: '/team-gina-fratarcangeli.png',
-    bio: 'Managing Director of AI at Google and board member at the Colorado Technology Association. Previously held leadership roles at Accenture and IBM. Gina brings decades of experience scaling technology for Fortune 500 companies.',
+    bio: 'VP at Flex and former Managing Director of AI at Google. Board member at the Colorado Technology Association, with prior leadership roles at Accenture and IBM. Gina brings decades of experience scaling technology for Fortune 500 companies.',
     linkedin: 'https://www.linkedin.com/in/gina-fratarcangeli/',
   },
 ];
