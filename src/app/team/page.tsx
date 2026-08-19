@@ -49,7 +49,7 @@ const ADVISORS = [
   {
     name: 'Gina Fratarcangeli',
     role: 'Advisory Board',
-    initials: 'GF',
+    photo: '/team-gina-fratarcangeli.png',
     bio: 'Managing Director of AI at Google and board member at the Colorado Technology Association. Previously held leadership roles at Accenture and IBM. Gina brings decades of experience scaling technology for Fortune 500 companies.',
     linkedin: 'https://www.linkedin.com/in/gina-fratarcangeli/',
   },
@@ -136,8 +136,14 @@ export default function TeamPage() {
             </p>
             {ADVISORS.map((advisor) => (
               <div key={advisor.name} className="card-enhanced text-center">
-                <div className="w-24 h-24 rounded-full mx-auto mb-6 bg-gradient-to-br from-orange-200 to-orange-300 flex items-center justify-center text-orange-700 text-2xl font-bold">
-                  {advisor.initials}
+                <div className="w-24 h-24 rounded-full mx-auto mb-6 overflow-hidden bg-gradient-to-br from-orange-100 to-orange-200">
+                  <Image
+                    src={advisor.photo}
+                    alt={advisor.name}
+                    width={96}
+                    height={96}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold mb-2 gradient-text-enhanced">
                   {advisor.name}
