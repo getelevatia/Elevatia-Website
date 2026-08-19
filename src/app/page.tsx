@@ -388,6 +388,9 @@ export default function Home() {
               <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
                 About
               </Link>
+              <Link href="/team" className="text-gray-600 hover:text-gray-900 transition-colors">
+                Team
+              </Link>
               <Link href="/privacy" className="text-gray-600 hover:text-gray-900 transition-colors">
                 Privacy Policy
               </Link>
