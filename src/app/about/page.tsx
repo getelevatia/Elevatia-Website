@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function AboutPage() {
@@ -79,7 +80,7 @@ export default function AboutPage() {
             <div className="card-enhanced">
               <div className="w-28 h-28 rounded-full mx-auto mb-6 overflow-hidden">
                 <Image
-                  src="/zackh-francois.png"
+                  src="/team-zackhary-francois-2.png"
                   alt="Zackhary Francois"
                   width={112}
                   height={112}
@@ -89,7 +90,7 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold mb-2 gradient-text-enhanced">
                 Zackhary Francois
               </h3>
-              <p className="text-orange-600 font-semibold mb-4">Founder & CEO</p>
+              <p className="text-orange-600 font-semibold mb-4">Co-founder &amp; CEO</p>
               <p className="text-gray-600 leading-relaxed max-w-xl mx-auto">
                 Zackh founded Elevatia with the belief that world-class wellness guidance
                 shouldn&apos;t be a luxury. With a background in Neuroscience and a passion for health
@@ -97,6 +98,14 @@ export default function AboutPage() {
                 habits accessible to everyone.
               </p>
             </div>
+            <p className="mt-8">
+              <Link
+                href="/team"
+                className="text-orange-600 font-semibold hover:text-orange-700 transition-colors"
+              >
+                Meet the full team →
+              </Link>
+            </p>
           </div>
         </div>
       </section>

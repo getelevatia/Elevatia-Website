@@ -20,8 +20,14 @@ export default function MainNav() {
             <Logo />
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/contact" 
+            <Link
+              href="/team"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Team
+            </Link>
+            <Link
+              href="/contact"
               className="px-4 py-2 text-sm font-medium text-white bg-gray-900 rounded-full hover:bg-gray-800 transition-colors"
             >
               Contact
