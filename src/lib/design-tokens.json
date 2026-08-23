@@ -5,9 +5,21 @@
     "bronze": "#B3835C",
     "bronzeLight": "#D4A574",
     "bronzeDark": "#8B6342",
+    "bronzeBright": "#E8C49A",
+    "bronzeDeep": "#5A3F28",
     "bronzeGlow": "rgba(179, 131, 92, 0.12)",
     "bronzeMuted": "rgba(179, 131, 92, 0.08)",
-    "_darkModeNote": "In the app's dark theme the ramp shifts up one step: bronze becomes #D4A574 and bronzeDark becomes #B3835C. The website has no dark mode, so it uses the light values above."
+    "_darkModeNote": "In the app's dark theme the ramp shifts up one step: bronze becomes #D4A574 and bronzeDark becomes #B3835C. The marketing site is dark-first (2026-08 revamp) and pairs bronze/bronzeBright accents with the night group below. bronzeBright/bronzeDeep match the gold device-rim gradient in the brand-assets Remotion project."
+  },
+  "night": {
+    "_about": "Dark-first palette for the marketing site (Origin-style revamp, 2026-08). The partners portal and legal pages stay on the light neutral palette.",
+    "bg": "#0A0A0B",
+    "bgElevated": "#121214",
+    "card": "#161618",
+    "text": "#F5F2ED",
+    "textSecondary": "#B5B1AA",
+    "textMuted": "#7C7770",
+    "border": "rgba(255,255,255,0.08)"
   },
   "neutral": {
     "background": "#FAFAF8",
@@ -24,7 +36,7 @@
     "xxs": 2, "xs": 4, "sm": 8, "md": 12, "lg": 16, "xl": 24, "xxl": 32, "xxxl": 48
   },
   "type": {
-    "_note": "Sizes in px. The app renders these in Manrope; the site uses Inter. Sizes and weights are shared, the family is not.",
+    "_note": "Sizes in px. Both the app and the marketing site render these in Manrope (site moved off Inter in the 2026-08 revamp).",
     "displayLarge":   { "size": 48, "weight": 700, "lineHeight": 56, "tracking": -1 },
     "displayMedium":  { "size": 36, "weight": 700, "lineHeight": 44, "tracking": -0.5 },
     "displaySmall":   { "size": 28, "weight": 700, "lineHeight": 36, "tracking": -0.25 },

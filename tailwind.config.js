@@ -19,6 +19,8 @@ module.exports = {
           DEFAULT: tokens.brand.bronze,
           light: tokens.brand.bronzeLight,
           dark: tokens.brand.bronzeDark,
+          bright: tokens.brand.bronzeBright,
+          deep: tokens.brand.bronzeDeep,
         },
         cream: {
           DEFAULT: tokens.neutral.background,
@@ -30,7 +32,40 @@ module.exports = {
           muted: tokens.neutral.textMuted,
         },
         hairline: tokens.neutral.border,
+        night: {
+          DEFAULT: tokens.night.bg,
+          elevated: tokens.night.bgElevated,
+          card: tokens.night.card,
+          text: tokens.night.text,
+          "text-secondary": tokens.night.textSecondary,
+          "text-muted": tokens.night.textMuted,
+          border: tokens.night.border,
+        },
       },
+      fontFamily: {
+        sans: ["var(--font-manrope)", "system-ui", "sans-serif"],
+      },
+      fontSize: Object.fromEntries(
+        Object.entries(tokens.type)
+          .filter(([k]) => !k.startsWith("_"))
+          .map(([k, v]) => [
+            // displayLarge -> display-lg style keys
+            k
+              .replace(/([A-Z])/g, "-$1")
+              .toLowerCase()
+              .replace("large", "lg")
+              .replace("medium", "md")
+              .replace("small", "sm"),
+            [
+              `${v.size}px`,
+              {
+                lineHeight: `${v.lineHeight}px`,
+                letterSpacing: `${v.tracking}px`,
+                fontWeight: `${v.weight}`,
+              },
+            ],
+          ])
+      ),
       borderRadius: Object.fromEntries(
         Object.entries(tokens.radius).map(([k, v]) => [k, `${v}px`])
       ),

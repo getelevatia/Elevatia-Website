@@ -4,14 +4,17 @@
 
 /* Brand values are derived from the shared tokens in
    design-harvest/design-tokens.json (committed copy at src/lib/design-tokens.json).
-   Canonical bronze is the app's #B3835C; this file previously used #CD7F32.
-   Change them there and run design-harvest/sync-tokens.sh, not here. */
+   Change them there and run design-harvest/sync-tokens.sh, not here.
+   The marketing site is dark-first; light pages (privacy, terms, join,
+   stay-in-touch, partners portal) set their own light background at the root. */
 :root {
-  --cream: #F5F5DC;
   --bronze: #B3835C;
-  --cream-light: #FFF8E7;
   --bronze-light: #D4A574;
   --bronze-dark: #8B6342;
+  --bronze-bright: #E8C49A;
+  --night: #0A0A0B;
+  --night-text: #F5F2ED;
+  /* Legacy vars still referenced by light-page component classes. */
   --background: #FDFAF6;
   --text-primary: #1A1A1A;
   --text-secondary: #666666;
@@ -19,9 +22,8 @@
 
 @layer base {
   body {
-    background: var(--background);
-    color: var(--text-primary);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: var(--night);
+    color: var(--night-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -168,5 +170,50 @@
 
   .partner-logo {
     @apply grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100;
+  }
+
+  /* ---- Dark revamp primitives (2026-08) ---- */
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-bronze;
+  }
+
+  .card-night {
+    @apply bg-night-card border border-white/10 rounded-2xl;
+  }
+
+  .text-gradient-bronze {
+    background: linear-gradient(135deg, var(--bronze-bright) 0%, var(--bronze) 60%, var(--bronze-dark) 100%);
+    @apply bg-clip-text text-transparent;
+  }
+
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+
+  .scroll-reveal,
+  .fade-in-up,
+  .fade-in-left,
+  .fade-in-right,
+  .scale-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

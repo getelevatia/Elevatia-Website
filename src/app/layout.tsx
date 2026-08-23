@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import MainNav from "@/components/layout/MainNav";
 
-const inter = Inter({ subsets: ["latin"] });
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+});
 
 export const metadata: Metadata = {
   title: {
     default: "Elevatia - Better Your Life",
     template: "%s | Elevatia"
   },
-  description: "Elevatia helps you track and improve various aspects of your life through structured paths. Using AI and gamification, we provide personalized guidance to help you achieve your wellness goals.",
+  description: "Elevatia reads your signals and hands you one right move each day. Structured paths, real accountability, and guidance that fits your life.",
   icons: {
     icon: [
       { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
@@ -29,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${manrope.variable} font-sans`}>
         <MainNav />
         <main>
           {children}
