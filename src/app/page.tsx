@@ -1,412 +1,88 @@
-'use client';
+import Eyebrow from '@/components/marketing/Eyebrow';
+import AppStoreBadge from '@/components/marketing/AppStoreBadge';
+import HeroVideo from '@/components/marketing/HeroVideo';
+import PhoneShowcase3D from '@/components/marketing/PhoneShowcase3D';
+import FeaturePanels, { type FeaturePanel } from '@/components/marketing/FeaturePanels';
+import TestimonialMarquee from '@/components/marketing/TestimonialMarquee';
+import StatsBand from '@/components/marketing/StatsBand';
+import FinalCta from '@/components/marketing/FinalCta';
+import Footer from '@/components/layout/Footer';
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
+const PANELS: FeaturePanel[] = [
+  {
+    screen: '/screens/areas-2.png',
+    alt: 'Elevatia areas picker: nutrition, fitness, hormonal, mental, maternal and sleep',
+    eyebrow: 'Your Areas',
+    title: 'Start where you are',
+    body: 'Pick the parts of your life you want to grow: nutrition, fitness, sleep, mental, hormonal, maternal. Change them any time. Every path meets you at your level.',
+  },
+  {
+    screen: '/screens/sow-2.png',
+    alt: 'Elevatia week plan with a daily check-in and completed sow',
+    eyebrow: 'Guidance',
+    title: 'Deeply personal, by design',
+    body: 'Guidance built from neuroscience, hormonal health, your biometrics, your geography, and your background. Dozens of signals become millions of possible daily states, filtered down to your one right move. Because one size fits one.',
+  },
+  {
+    screen: '/screens/connect-2.png',
+    alt: 'Elevatia Connect screen linking Apple Health, Oura, Whoop, and Garmin',
+    eyebrow: 'Your Signals',
+    title: 'Beyond your tracker',
+    body: 'Your watch and ring only tell you what happened. The Sky Model turns those signals into the one thing they never give you: what to do next, today, for you.',
+  },
+  {
+    screen: '/screens/crucible-2.png',
+    alt: 'Elevatia Crucible groups and competitions',
+    eyebrow: 'Crucible',
+    title: 'Better together',
+    body: 'Compete with friends, share progress, and build accountability partnerships that keep you motivated. Your wellness journey becomes something you look forward to.',
+  },
+];
 
 export default function Home() {
-  const heroAnimation = useScrollAnimation({ threshold: 0.1 });
-  const processStep1Animation = useScrollAnimation({ threshold: 0.2 });
-  const processStep2Animation = useScrollAnimation({ threshold: 0.2 });
-  const processStep3Animation = useScrollAnimation({ threshold: 0.2 });
-  const featuresAnimation = useStaggeredAnimation(4, { threshold: 0.2 });
-  const statsAnimation = useStaggeredAnimation(4, { threshold: 0.2 });
-  const ctaAnimation = useScrollAnimation({ threshold: 0.2 });
-
   return (
-    <div className="min-h-screen relative bg-[#FDFAF6] overflow-hidden pt-16">
-      
-      {/* Enhanced Hero Section */}
-      <section className="section-padding-large relative">
-        <div className="container">
-          <div 
-            ref={heroAnimation.ref}
-            className={`max-w-6xl mx-auto text-center scroll-reveal ${heroAnimation.isVisible ? 'visible' : ''}`}
-          >
-            <h1 className="hero-title mb-8 gradient-text-enhanced">
-              We Tell You What To Do Next
-              <span className="block gradient-text-accent">
-                To Better Your Life
-              </span>
+    <div className="relative min-h-screen overflow-x-clip bg-night text-night-text">
+
+      {/* Hero: sky video fading into the dark page */}
+      <section className="relative flex min-h-[100svh] items-center justify-center">
+        <HeroVideo />
+        <div className="container relative pb-24 pt-36 text-center">
+          <div className="mx-auto max-w-4xl">
+            <Eyebrow pill>One right move a day</Eyebrow>
+            <h1 className="mt-8 text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
+              We tell you what to do next
+              <span className="block">to better your life.</span>
             </h1>
-            <p className="section-subtitle max-w-4xl mx-auto mb-12">
-              Elevatia helps you build lasting wellness habits through our Sky Model:
-              neuro symbolic AI that makes life improvement stick.
+            <p className="mx-auto mt-8 max-w-2xl text-lg text-white/90 sm:text-xl">
+              Elevatia reads where your body is at and hands you one right move
+              for the day. The Sky Model makes life improvement stick.
             </p>
-            <div className="flex flex-col items-center space-y-8">
-              <a 
-                href="https://apps.apple.com/us/app/elevatia/id6747624957"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block interactive-lift interactive-glow"
-              >
-                <Image
-                  src="/app-store-badge-official.svg"
-                  alt="Download on the App Store"
-                  width={180}
-                  height={60}
-                  className="h-14 w-auto drop-shadow-lg"
-                  priority
-                />
-              </a>
-              
-              {/* iPhone with Real App Screenshot */}
-              <div className="relative">
-                <Image
-                  src="/hero-phones-2.png"
-                  alt="Elevatia app: device connections, home with Daily Sow, and Crucible screens"
-                  width={2280}
-                  height={1840}
-                  className="rounded-3xl interactive-lift max-w-4xl mx-auto w-full"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3-Step Process Section */}
-      <section className="section-padding relative bg-gradient-to-br from-gray-50/50 to-white/50">
-        <div className="container">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="section-title mb-6 gradient-text-enhanced">
-                How Elevatia Works
-              </h2>
-              <p className="section-subtitle text-gray-600">
-                Three simple steps to transform your wellness journey
-              </p>
-            </div>
-            
-            <div className="space-y-24">
-              {[
-                {
-                  step: "Step 1",
-                  title: "Download & Set Your Goals",
-                  description: "Choose from our curated wellness paths or create custom goals tailored to your lifestyle. Whether it's fitness, nutrition, mindfulness, or sleep - we've got you covered.",
-                  image: "/step-1-areas.png",
-                  alt: "Elevatia wellness areas: nutrition, fitness, hormonal, mental, maternal and sleep"
-                },
-                {
-                  step: "Step 2",
-                  title: "Complete Your Daily Sow",
-                  description: "Each morning the Sky Model understands you and where your body is at, then hands you one right move for the day.",
-                  image: "/step-2-daily-sow.png",
-                  alt: "Elevatia home feed with the Daily Sow readout and one right move"
-                },
-                {
-                  step: "Step 3",
-                  title: "Achieve & Compete",
-                  description: "Reach your milestones, earn achievements, and compete with friends in our Crucible feature. Turn your wellness journey into an engaging, social experience.",
-                  image: "/step-3-crucible-2.png",
-                  alt: "Elevatia Crucible groups and competitions"
-                }
-              ].map((item, index) => {
-                const animations = [processStep1Animation, processStep2Animation, processStep3Animation];
-                const stepAnimation = animations[index];
-                
-                return (
-                  <div 
-                    key={item.step} 
-                    ref={stepAnimation.ref}
-                    className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}
-                  >
-                    <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} ${stepAnimation.isVisible ? 'fade-in-up visible' : 'fade-in-up'}`}>
-                      <div className="text-sm font-semibold text-orange-600 mb-2 tracking-wide uppercase">
-                        {item.step}
-                      </div>
-                      <h3 className="text-3xl sm:text-4xl font-bold mb-6 gradient-text-enhanced">
-                        {item.title}
-                      </h3>
-                      <p className="body-large text-gray-600 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                    <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''} ${stepAnimation.isVisible ? 'scale-in visible' : 'scale-in'}`}>
-                      <div className="flex justify-center">
-                        <div className="relative">
-                          <Image
-                            src={item.image}
-                            alt={item.alt}
-                            width={320}
-                            height={633}
-                            className="interactive-lift"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Enhanced Features Section */}
-      <section className="section-padding relative">
-        <div className="container">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="section-title mb-6 gradient-text-enhanced">
-                Why Choose Elevatia?
-              </h2>
-              <p className="section-subtitle text-gray-600">
-                Most health apps read your tracker data back to you and serve the same
-                one size fits all advice to everyone. Elevatia is better.
-              </p>
-            </div>
-            <div
-              ref={featuresAnimation.ref}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto"
-            >
-              {[
-                {
-                  title: "Beyond Your Tracker",
-                  description: "Your watch and ring only tell you what happened. The Sky Model turns those signals into the one thing they never give you: what to do next, today, for you.",
-                },
-                {
-                  title: "Deeply Personal",
-                  description: "Guidance built from neuroscience, hormonal health, your biometrics, your geography, and your background. Every signal is read against every other: dozens of inputs become millions of possible daily states, filtered down to your one right move. Because one size fits one.",
-                },
-                {
-                  title: "It Works",
-                  description: <>77% of active members are achieving their goals. We measure success by <em>Sows grown into fruit</em>: goals achieved day over day, month over month, backed by user testimonies.</>,
-                },
-                {
-                  title: "Crucible",
-                  description: "Compete with friends, share progress, and build accountability partnerships that keep you motivated and engaged.",
-                }
-              ].map((feature, index) => (
-                <div 
-                  key={feature.title}
-                  className={`card-enhanced ${featuresAnimation.visibleItems[index] ? 'fade-in-up visible' : 'fade-in-up'}`}
-                  style={{ animationDelay: `${index * 150}ms` }}
-                >
-                  <h3 className="text-2xl font-bold mb-4 gradient-text-enhanced text-center">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-center">
-                    {feature.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof Stats Section */}
-      <section className="section-padding relative bg-gradient-to-br from-orange-50/30 to-yellow-50/30">
-        <div className="container">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="section-title mb-6 gradient-text-enhanced">
-                Join Thousands on Their Wellness Journey
-              </h2>
-              <p className="section-subtitle text-gray-600">
-                Real results from real people using Elevatia every day
-              </p>
-            </div>
-            
-            <div 
-              ref={statsAnimation.ref}
-              className="grid grid-cols-2 lg:grid-cols-4 gap-8"
-            >
-              {[
-                {
-                  number: "1500+",
-                  label: "Active Users",
-                  description: "Building better habits daily"
-                },
-                {
-                  number: "3K+",
-                  label: "Goals Achieved",
-                  description: "Milestones reached and celebrated"
-                },
-                {
-                  number: "77%",
-                  label: "Success Rate",
-                  description: "Active members achieving their goals"
-                },
-                {
-                  number: "5★",
-                  label: "App Store Rating",
-                  description: "Loved by our community"
-                }
-              ].map((stat, index) => (
-                <div 
-                  key={stat.label}
-                  className={`stat-card ${statsAnimation.visibleItems[index] ? 'scale-in visible' : 'scale-in'}`}
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="text-4xl sm:text-5xl font-bold mb-2 gradient-text-accent">
-                    {stat.number}
-                  </div>
-                  <div className="text-lg font-semibold text-gray-800 mb-2">
-                    {stat.label}
-                  </div>
-                  <div className="text-sm text-gray-600">
-                    {stat.description}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section - Hidden for now */}
-      {/* 
-      <section className="section-padding relative">
-        <div className="container">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="section-title mb-6 gradient-text-enhanced">
-                What Our Users Say
-              </h2>
-              <p className="section-subtitle text-gray-600">
-                Real stories from people who transformed their lives with Elevatia
-              </p>
-            </div>
-            
-            <div 
-              ref={testimonialsAnimation.ref}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            >
-              {[
-                {
-                  quote: "Elevatia completely changed how I approach wellness. The AI guidance feels like having a personal coach who actually understands my lifestyle and challenges.",
-                  name: "Sarah Chen",
-                  role: "Marketing Manager",
-                  initials: "SC",
-                  achievement: "Lost 25 lbs in 4 months"
-                },
-                {
-                  quote: "The structured paths made it so much easier to build consistent habits. I've never stuck to a wellness routine this long before - 8 months and counting!",
-                  name: "Marcus Johnson",
-                  role: "Software Developer", 
-                  initials: "MJ",
-                  achievement: "Completed 3 wellness paths"
-                },
-                {
-                  quote: "The social features keep me motivated. Competing with friends in the Crucible turned my fitness journey into something I actually look forward to every day.",
-                  name: "Emma Rodriguez",
-                  role: "Teacher",
-                  initials: "ER", 
-                  achievement: "Top 5% in community challenges"
-                }
-              ].map((testimonial, index) => (
-                <div 
-                  key={testimonial.name}
-                  className={`testimonial-card ${testimonialsAnimation.visibleItems[index] ? 'fade-in-up visible' : 'fade-in-up'}`}
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  <div className="mb-6">
-                    <div className="text-gray-400 text-2xl mb-2">&ldquo;</div>
-                    <p className="text-gray-700 leading-relaxed italic">
-                      {testimonial.quote}
-                    </p>
-                    <div className="text-gray-400 text-2xl text-right">&rdquo;</div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-4">
-                    <div className="profile-placeholder">
-                      {testimonial.initials}
-                    </div>
-                    <div>
-                      <div className="font-semibold text-gray-800">{testimonial.name}</div>
-                      <div className="text-sm text-gray-600">{testimonial.role}</div>
-                      <div className="text-xs text-orange-600 font-medium mt-1">
-                        {testimonial.achievement}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-      */}
-
-      {/* Enhanced CTA Section */}
-      <section className="section-padding-large relative overflow-hidden">
-        <div className="container relative">
-          <div
-            ref={ctaAnimation.ref}
-            className={`max-w-4xl mx-auto text-center ${ctaAnimation.isVisible ? 'scroll-reveal visible' : 'scroll-reveal'}`}
-          >
-            <h2 className="hero-title mb-8 gradient-text-enhanced">
-              Ready to Transform Your
-              <span className="block gradient-text-accent">
-                Wellness Journey?
-              </span>
-            </h2>
-            <p className="section-subtitle text-gray-600 mb-12 max-w-3xl mx-auto">
-              Join thousands of users who have already discovered the power of personalized wellness guidance.
-              Your healthiest, happiest self is just one download away.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <a
-                href="https://apps.apple.com/us/app/elevatia/id6747624957"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block interactive-lift interactive-glow"
-              >
-                <Image
-                  src="/app-store-badge-official.svg"
-                  alt="Download on the App Store"
-                  width={200}
-                  height={67}
-                  className="h-16 w-auto drop-shadow-lg"
-                />
-              </a>
-              <div className="text-center sm:text-left">
-                <div className="text-orange-600 font-semibold mb-1">Free to start</div>
-                <div className="text-gray-600 text-sm">Premium features available</div>
-              </div>
-            </div>
-
-            <div className="mt-12 pt-8 border-t border-gray-200">
-              <p className="text-gray-500 text-sm">
-                Your data is secure and private • Available on iOS • 5/5 App Store rating
+            <div className="mt-10 flex flex-col items-center gap-4">
+              <AppStoreBadge />
+              <p className="text-sm text-white/75">
+                5 stars on the App Store &middot; 1,700+ members
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-50 py-8 sm:py-12">
-        <div className="container">
-          <div className="max-w-6xl mx-auto text-center">
-            <p className="text-gray-600 mb-4">
-              © 2026 Elevatia, Co. All rights reserved.
-            </p>
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-              <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
-                About
-              </Link>
-              <Link href="/team" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Team
-              </Link>
-              <Link href="/privacy" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="/partners" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Partners
-              </Link>
-              <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Contact
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* The today screen, in 3D */}
+      <PhoneShowcase3D />
+
+      {/* Prominent frameless screens */}
+      <FeaturePanels panels={PANELS} />
+
+      {/* Proof */}
+      <StatsBand />
+
+      {/* Member quotes (renders once real quotes are added) */}
+      <TestimonialMarquee />
+
+      {/* Closing CTA on the sky motif */}
+      <FinalCta />
+
+      <Footer />
     </div>
   );
 }

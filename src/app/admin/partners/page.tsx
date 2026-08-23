@@ -224,7 +224,7 @@ function AdminContent() {
 
   if (loading || !isSuperAdmin) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FDFAF6]">
+      <div className="min-h-screen flex items-center justify-center bg-[#FDFAF6] text-[#1A1A1A]">
         <div className="animate-spin h-8 w-8 border-4 border-purple-500 border-t-transparent rounded-full" />
       </div>
     );

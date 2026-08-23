@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function PartnersPage() {
   return (
-    <div className="min-h-screen bg-[#FDFAF6]">
+    <div className="min-h-screen bg-[#FDFAF6] text-[#1A1A1A]">
       {/* Header */}
       <nav className="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

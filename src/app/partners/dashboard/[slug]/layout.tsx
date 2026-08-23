@@ -72,7 +72,7 @@ function DashboardLayoutContent({ children }: { children: React.ReactNode }) {
 
   if (loading || loadingOrg) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FDFAF6]">
+      <div className="min-h-screen flex items-center justify-center bg-[#FDFAF6] text-[#1A1A1A]">
         <div className="animate-spin h-8 w-8 border-4 border-orange-500 border-t-transparent rounded-full" />
       </div>
     );
@@ -92,7 +92,7 @@ function DashboardLayoutContent({ children }: { children: React.ReactNode }) {
 
   return (
     <ViewedOrgContext.Provider value={viewedOrg}>
-      <div className="min-h-screen bg-[#FDFAF6]">
+      <div className="min-h-screen bg-[#FDFAF6] text-[#1A1A1A]">
         {/* Header */}
         <header className="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

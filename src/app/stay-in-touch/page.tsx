@@ -32,7 +32,7 @@ export default function StayInTouchPage() {
   };
 
   return (
-    <div className="min-h-screen pt-16 bg-[#FDFAF6]">
+    <div className="min-h-screen pt-16 bg-night text-night-text">
       <section className="section-padding">
         <div className="container">
           <div className="max-w-xl mx-auto">
@@ -54,20 +54,20 @@ export default function StayInTouchPage() {
                     />
                   </svg>
                 </div>
-                <h1 className="text-3xl sm:text-4xl font-semibold text-gray-800 mb-4">
+                <h1 className="text-3xl sm:text-4xl font-semibold text-night-text mb-4">
                   Thank you
                 </h1>
-                <p className="text-gray-600 text-lg">
+                <p className="text-night-text-secondary text-lg">
                   You&apos;re all set. We&apos;ll be in touch when we have something worth sharing.
                 </p>
               </div>
             ) : (
               <>
-                <h1 className="text-3xl sm:text-4xl font-semibold text-gray-800 mb-6 text-center">
+                <h1 className="text-3xl sm:text-4xl font-semibold text-night-text mb-6 text-center">
                   Stay in touch with Elevatia
                 </h1>
                 
-                <div className="text-gray-600 text-center mb-10 space-y-3">
+                <div className="text-night-text-secondary text-center mb-10 space-y-3">
                   <p>
                     If you&apos;d like, you can receive occasional updates and insights from us.
                   </p>
@@ -87,7 +87,7 @@ export default function StayInTouchPage() {
                   <div>
                     <label 
                       htmlFor="email" 
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-night-text-secondary mb-2"
                     >
                       Email address
                     </label>
@@ -102,7 +102,7 @@ export default function StayInTouchPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       disabled={status === 'submitting'}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full px-4 py-3 border border-white/10 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="you@example.com"
                     />
                     {errorMessage && (
@@ -120,14 +120,14 @@ export default function StayInTouchPage() {
                     type="submit"
                     disabled={status === 'submitting' || !email}
                     aria-busy={status === 'submitting'}
-                    className="w-full px-6 py-3 text-base font-medium text-white bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full px-6 py-3 text-base font-medium text-night bg-bronze rounded-lg hover:bg-bronze-bright focus:outline-none focus:ring-2 focus:ring-bronze/40 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {status === 'submitting' ? 'Submitting...' : 'Stay in touch'}
                   </button>
 
                   <p 
                     id="consent-text" 
-                    className="text-sm text-gray-500 text-center"
+                    className="text-sm text-night-text-muted text-center"
                   >
                     By signing up, you agree to receive occasional emails from Elevatia.
                   </p>
@@ -135,7 +135,7 @@ export default function StayInTouchPage() {
 
                 <p 
                   id="email-hint"
-                  className="mt-8 text-sm text-gray-400 text-center"
+                  className="mt-8 text-sm text-night-text-muted text-center"
                 >
                   We only send emails when there&apos;s something genuinely useful to share.
                 </p>

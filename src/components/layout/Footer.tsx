@@ -1,66 +1,45 @@
 import Link from 'next/link';
 
+const LINKS = [
+  { href: '/about', label: 'About' },
+  { href: '/team', label: 'Team' },
+  { href: '/privacy', label: 'Privacy Policy' },
+  { href: '/terms', label: 'Terms of Service' },
+  { href: '/partners', label: 'Partners' },
+  { href: '/contact', label: 'Contact' },
+];
+
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold">Elevatia</h3>
-            <p className="text-gray-400">
-              Your AI-powered wellness companion. Transforming personal wellness through innovative technology.
+    <footer className="border-t border-white/10 bg-night py-10 sm:py-14">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col items-center gap-6 text-center">
+            <p className="max-w-md text-sm text-night-text-muted">
+              Trackers tell you what happened. We tell you what to do next.
             </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
-                  About Us
+            <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+              {LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-night-text-secondary transition-colors hover:text-night-text"
+                >
+                  {link.label}
                 </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/partners" className="text-gray-400 hover:text-white transition-colors">
-                  Partners
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-            </ul>
-            <p className="text-gray-500 text-sm mt-4">
-              <a href="mailto:info@getelevatia.com" className="hover:text-gray-300 transition-colors">
-                info@getelevatia.com
+              ))}
+            </nav>
+            <p className="text-sm text-night-text-muted">
+              <a
+                href="mailto:zackh@getelevatia.com"
+                className="transition-colors hover:text-night-text-secondary"
+              >
+                zackh@getelevatia.com
               </a>
+              <span className="mx-2" aria-hidden="true">&middot;</span>
+              &copy; {new Date().getFullYear()} Elevatia, Co. All rights reserved.
             </p>
           </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Elevatia, Co. All rights reserved.</p>
         </div>
       </div>
     </footer>

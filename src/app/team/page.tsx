@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
+import Footer from '@/components/layout/Footer';
 
 function LinkedInLink({ href, name }: { href: string; name: string }) {
   return (
@@ -11,7 +12,7 @@ function LinkedInLink({ href, name }: { href: string; name: string }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${name} on LinkedIn`}
-      className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm font-medium text-gray-700 hover:text-white hover:bg-[#0A66C2] hover:border-[#0A66C2] transition-colors"
+      className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 text-sm font-medium text-night-text-secondary hover:text-white hover:bg-[#0A66C2] hover:border-[#0A66C2] transition-colors"
     >
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
         <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z" />
@@ -61,28 +62,28 @@ export default function TeamPage() {
   const ctaAnimation = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <div className="min-h-screen relative bg-[#FDFAF6] overflow-hidden pt-16">
+    <div className="min-h-screen relative bg-night text-night-text overflow-x-clip pt-16">
 
       {/* Hero */}
       <section className="section-padding-large relative">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="hero-title mb-8 gradient-text-enhanced">
+            <h1 className="hero-title mb-8 text-night-text">
               The Team
             </h1>
-            <p className="section-subtitle text-gray-600 max-w-3xl mx-auto">
-              A small team with a simple conviction: wellness guidance should be
-              personal, grounded in science, and built for real life.
+            <p className="section-subtitle text-night-text-secondary max-w-3xl mx-auto">
+              We believe personal wellness guidance should be personal and
+              available to everyone.
             </p>
           </div>
         </div>
       </section>
 
       {/* Founders */}
-      <section className="section-padding relative bg-gradient-to-br from-gray-50/50 to-white/50">
+      <section className="section-padding relative bg-night-elevated">
         <div className="container">
           <div className="max-w-6xl mx-auto">
-            <h2 className="section-title mb-12 gradient-text-enhanced text-center">
+            <h2 className="section-title mb-12 text-night-text text-center">
               Founders
             </h2>
             <div
@@ -92,10 +93,10 @@ export default function TeamPage() {
               {FOUNDERS.map((founder, index) => (
                 <div
                   key={founder.name}
-                  className={`card-enhanced text-center flex flex-col ${foundersAnimation.visibleItems[index] ? 'fade-in-up visible' : 'fade-in-up'}`}
+                  className={`card-night p-8 sm:p-10 text-center flex flex-col ${foundersAnimation.visibleItems[index] ? 'fade-in-up visible' : 'fade-in-up'}`}
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
-                  <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden bg-gradient-to-br from-orange-100 to-orange-200">
+                  <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden ring-1 ring-white/15">
                     <Image
                       src={founder.photo}
                       alt={founder.name}
@@ -104,11 +105,11 @@ export default function TeamPage() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2 gradient-text-enhanced">
+                  <h3 className="text-2xl font-bold mb-2 text-night-text">
                     {founder.name}
                   </h3>
-                  <p className="text-orange-600 font-semibold mb-4">{founder.role}</p>
-                  <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
+                  <p className="text-bronze font-semibold mb-4">{founder.role}</p>
+                  <p className="text-night-text-secondary leading-relaxed mb-6 flex-grow">
                     {founder.bio}
                   </p>
                   <div>
@@ -128,15 +129,15 @@ export default function TeamPage() {
             ref={advisorsAnimation.ref}
             className={`max-w-3xl mx-auto ${advisorsAnimation.isVisible ? 'scroll-reveal visible' : 'scroll-reveal'}`}
           >
-            <h2 className="section-title mb-4 gradient-text-enhanced text-center">
+            <h2 className="section-title mb-4 text-night-text text-center">
               Advisory Board
             </h2>
-            <p className="section-subtitle text-gray-600 text-center mb-12">
+            <p className="section-subtitle text-night-text-secondary text-center mb-12">
               Experienced operators who keep us sharp.
             </p>
             {ADVISORS.map((advisor) => (
-              <div key={advisor.name} className="card-enhanced text-center">
-                <div className="w-24 h-24 rounded-full mx-auto mb-6 overflow-hidden bg-gradient-to-br from-orange-100 to-orange-200">
+              <div key={advisor.name} className="card-night p-8 sm:p-10 text-center">
+                <div className="w-24 h-24 rounded-full mx-auto mb-6 overflow-hidden ring-1 ring-white/15">
                   <Image
                     src={advisor.photo}
                     alt={advisor.name}
@@ -145,11 +146,11 @@ export default function TeamPage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-2xl font-bold mb-2 gradient-text-enhanced">
+                <h3 className="text-2xl font-bold mb-2 text-night-text">
                   {advisor.name}
                 </h3>
-                <p className="text-orange-600 font-semibold mb-4">{advisor.role}</p>
-                <p className="text-gray-600 leading-relaxed mb-6 max-w-xl mx-auto">
+                <p className="text-bronze font-semibold mb-4">{advisor.role}</p>
+                <p className="text-night-text-secondary leading-relaxed mb-6 max-w-xl mx-auto">
                   {advisor.bio}
                 </p>
                 <LinkedInLink href={advisor.linkedin} name={advisor.name} />
@@ -160,27 +161,29 @@ export default function TeamPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding relative bg-gradient-to-br from-orange-50/30 to-yellow-50/30">
+      <section className="section-padding relative bg-night-elevated">
         <div className="container">
           <div
             ref={ctaAnimation.ref}
             className={`max-w-3xl mx-auto text-center ${ctaAnimation.isVisible ? 'scroll-reveal visible' : 'scroll-reveal'}`}
           >
-            <h2 className="section-title mb-6 gradient-text-enhanced">
+            <h2 className="section-title mb-6 text-night-text">
               Want to build with us?
             </h2>
-            <p className="section-subtitle text-gray-600 mb-10">
+            <p className="section-subtitle text-night-text-secondary mb-10">
               We partner with people who care about doing wellness right.
             </p>
             <Link
               href="/contact"
-              className="inline-block px-8 py-4 text-lg font-semibold text-white bg-gray-900 rounded-full hover:bg-gray-800 transition-colors interactive-lift"
+              className="inline-block px-8 py-4 text-lg font-semibold text-night bg-bronze rounded-full hover:bg-bronze-bright transition-colors interactive-lift"
             >
               Get in touch
             </Link>
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
