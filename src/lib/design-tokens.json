@@ -1,0 +1,40 @@
+{
+  "_about": "Single source of truth for tokens shared between the RN app and the marketing site. The app's ThemeContext stays the runtime source for the app: it carries semantic light/dark roles this flat file cannot express, and it is NOT generated from here. What lives here is the brand layer both surfaces must agree on. Website consumers read the committed copy at repos/elevatia-website/src/lib/design-tokens.json, which sync-tokens.sh writes, because Vercel only ever sees the website repo.",
+  "_canonical": "App bronze (#B3835C). Decided 2026-08-19. The website previously used #CD7F32 and was moved onto this.",
+  "brand": {
+    "bronze": "#B3835C",
+    "bronzeLight": "#D4A574",
+    "bronzeDark": "#8B6342",
+    "bronzeGlow": "rgba(179, 131, 92, 0.12)",
+    "bronzeMuted": "rgba(179, 131, 92, 0.08)",
+    "_darkModeNote": "In the app's dark theme the ramp shifts up one step: bronze becomes #D4A574 and bronzeDark becomes #B3835C. The website has no dark mode, so it uses the light values above."
+  },
+  "neutral": {
+    "background": "#FAFAF8",
+    "card": "#FFFFFF",
+    "text": "#1A1A1A",
+    "textSecondary": "#4A4A4A",
+    "textMuted": "#8A8A8A",
+    "border": "#E8E8E6"
+  },
+  "radius": {
+    "xs": 4, "sm": 8, "md": 12, "lg": 16, "xl": 20, "xxl": 24, "full": 9999
+  },
+  "spacing": {
+    "xxs": 2, "xs": 4, "sm": 8, "md": 12, "lg": 16, "xl": 24, "xxl": 32, "xxxl": 48
+  },
+  "type": {
+    "_note": "Sizes in px. The app renders these in Manrope; the site uses Inter. Sizes and weights are shared, the family is not.",
+    "displayLarge":   { "size": 48, "weight": 700, "lineHeight": 56, "tracking": -1 },
+    "displayMedium":  { "size": 36, "weight": 700, "lineHeight": 44, "tracking": -0.5 },
+    "displaySmall":   { "size": 28, "weight": 700, "lineHeight": 36, "tracking": -0.25 },
+    "headlineLarge":  { "size": 24, "weight": 600, "lineHeight": 32, "tracking": 0 },
+    "headlineMedium": { "size": 20, "weight": 600, "lineHeight": 28, "tracking": 0 },
+    "headlineSmall":  { "size": 18, "weight": 600, "lineHeight": 24, "tracking": 0 },
+    "titleLarge":     { "size": 17, "weight": 600, "lineHeight": 24, "tracking": 0 },
+    "bodyLarge":      { "size": 16, "weight": 400, "lineHeight": 24, "tracking": 0 },
+    "bodyMedium":     { "size": 14, "weight": 400, "lineHeight": 20, "tracking": 0 },
+    "bodySmall":      { "size": 13, "weight": 400, "lineHeight": 18, "tracking": 0 },
+    "caption":        { "size": 12, "weight": 400, "lineHeight": 16, "tracking": 0.4 }
+  }
+}
