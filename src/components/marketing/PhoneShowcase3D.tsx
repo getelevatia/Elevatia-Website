@@ -21,9 +21,9 @@ export default function PhoneShowcase3D() {
   });
   const progress = useSpring(scrollYProgress, { stiffness: 90, damping: 25 });
 
-  // From near-flat to a reclined resting pose.
-  const rotateX = useTransform(progress, [0.05, 0.5], [72, 38]);
-  const rotateZ = useTransform(progress, [0.05, 0.5], [-24, -12]);
+  // From near-flat to a reclined resting pose, rotated off to the left.
+  const rotateX = useTransform(progress, [0.05, 0.5], [70, 36]);
+  const rotateZ = useTransform(progress, [0.05, 0.5], [-36, -22]);
   const y = useTransform(progress, [0.05, 0.5], [80, 0]);
   const opacity = useTransform(progress, [0.03, 0.18], [0, 1]);
 
@@ -49,13 +49,13 @@ export default function PhoneShowcase3D() {
               <motion.div
                 style={
                   reduced
-                    ? { transform: 'rotateX(38deg) rotateZ(-12deg)' }
+                    ? { transform: 'rotateX(36deg) rotateZ(-22deg)' }
                     : { rotateX, rotateZ, y, opacity, transformStyle: 'preserve-3d' }
                 }
                 className="relative"
               >
                 <Image
-                  src="/media/phone-today.png"
+                  src="/media/phone-today-2.png"
                   alt="Elevatia today screen with the Daily Sow"
                   width={900}
                   height={1810}

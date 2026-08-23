@@ -10,28 +10,28 @@ import Footer from '@/components/layout/Footer';
 
 const PANELS: FeaturePanel[] = [
   {
-    screen: '/screens/areas.png',
+    screen: '/screens/areas-2.png',
     alt: 'Elevatia areas picker: nutrition, fitness, hormonal, mental, maternal and sleep',
     eyebrow: 'Your Areas',
     title: 'Start where you are',
     body: 'Pick the parts of your life you want to grow: nutrition, fitness, sleep, mental, hormonal, maternal. Change them any time. Every path meets you at your level.',
   },
   {
-    screen: '/screens/sow.png',
+    screen: '/screens/sow-2.png',
     alt: 'Elevatia week plan with a daily check-in and completed sow',
     eyebrow: 'Guidance',
     title: 'Deeply personal, by design',
     body: 'Guidance built from neuroscience, hormonal health, your biometrics, your geography, and your background. Dozens of signals become millions of possible daily states, filtered down to your one right move. Because one size fits one.',
   },
   {
-    screen: '/screens/connect.png',
+    screen: '/screens/connect-2.png',
     alt: 'Elevatia Connect screen linking Apple Health, Oura, Whoop, and Garmin',
     eyebrow: 'Your Signals',
     title: 'Beyond your tracker',
     body: 'Your watch and ring only tell you what happened. The Sky Model turns those signals into the one thing they never give you: what to do next, today, for you.',
   },
   {
-    screen: '/screens/crucible.png',
+    screen: '/screens/crucible-2.png',
     alt: 'Elevatia Crucible groups and competitions',
     eyebrow: 'Crucible',
     title: 'Better together',
