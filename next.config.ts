@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   images: {
     domains: ['getelevatia.com'],
+    qualities: [75, 90],
   },
   async headers() {
     return [
