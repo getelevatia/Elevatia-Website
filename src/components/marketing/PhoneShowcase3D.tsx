@@ -55,7 +55,7 @@ export default function PhoneShowcase3D() {
                 className="relative"
               >
                 <Image
-                  src="/media/phone-today-2.png"
+                  src="/media/phone-today-3.png"
                   alt="Elevatia today screen with the Daily Sow"
                   width={900}
                   height={1810}
