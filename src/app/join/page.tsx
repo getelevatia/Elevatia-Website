@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function JoinPage() {
   return (
-    <div className="min-h-screen bg-[#FDFAF6] py-24">
+    <div className="min-h-screen bg-[#FDFAF6] text-[#1A1A1A] py-24">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-8 gradient-text">

@@ -32,7 +32,7 @@ export default function StayInTouchPage() {
   };
 
   return (
-    <div className="min-h-screen pt-16 bg-[#FDFAF6]">
+    <div className="min-h-screen pt-16 bg-[#FDFAF6] text-[#1A1A1A]">
       <section className="section-padding">
         <div className="container">
           <div className="max-w-xl mx-auto">
