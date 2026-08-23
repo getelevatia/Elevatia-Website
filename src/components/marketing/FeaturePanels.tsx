@@ -42,8 +42,8 @@ function PanelRow({ panel, flip }: { panel: FeaturePanel; flip: boolean }) {
           <Image
             src={panel.screen}
             alt={panel.alt}
-            width={1206}
-            height={2622}
+            width={1320}
+            height={2868}
             sizes="(max-width: 640px) 90vw, 400px"
             className="h-auto w-full"
           />

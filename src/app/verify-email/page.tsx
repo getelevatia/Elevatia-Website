@@ -37,8 +37,8 @@ function VerifyEmailContent() {
   }, [searchParams]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 text-[#1A1A1A] flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
+    <div className="min-h-screen bg-night text-night-text flex items-center justify-center p-4">
+      <div className="bg-night-card rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
         <div className="mb-6">
           <Image 
             src="/elevatia-logo.png" 
@@ -48,26 +48,26 @@ function VerifyEmailContent() {
             className="mx-auto mb-4"
             priority
           />
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl font-bold text-night-text mb-2">
             Opening Elevatia...
           </h1>
-          <p className="text-gray-600">
+          <p className="text-night-text-secondary">
             Redirecting you to the Elevatia app to verify your email.
           </p>
         </div>
 
         <div className="mb-6">
-          <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full">
-            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600 mr-2"></div>
-            <span className="text-blue-600 font-medium">Loading...</span>
+          <div className="inline-flex items-center px-4 py-2 bg-white/10 rounded-full">
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-bronze mr-2"></div>
+            <span className="text-bronze font-medium">Loading...</span>
           </div>
         </div>
 
-        <div className="text-sm text-gray-500 space-y-2">
+        <div className="text-sm text-night-text-muted space-y-2">
           <p>If the app doesn&apos;t open automatically:</p>
           <a 
             href="https://apps.apple.com/app/elevatia/id6670204991"
-            className="inline-block bg-black text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-800 transition-colors"
+            className="inline-block bg-bronze text-night px-6 py-2 rounded-lg font-medium hover:bg-bronze-bright transition-colors"
           >
             Download from App Store
           </a>
@@ -80,11 +80,11 @@ function VerifyEmailContent() {
 export default function VerifyEmailPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 text-[#1A1A1A] flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
-          <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full">
-            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600 mr-2"></div>
-            <span className="text-blue-600 font-medium">Loading...</span>
+      <div className="min-h-screen bg-night text-night-text flex items-center justify-center p-4">
+        <div className="bg-night-card rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
+          <div className="inline-flex items-center px-4 py-2 bg-white/10 rounded-full">
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-bronze mr-2"></div>
+            <span className="text-bronze font-medium">Loading...</span>
           </div>
         </div>
       </div>

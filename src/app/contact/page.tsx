@@ -19,7 +19,7 @@ export default function ContactPage() {
                 Have questions about Elevatia? We&apos;re here to help. Fill out the form below or reach out to us directly.
               </p>
 
-              <form className="space-y-6" action="mailto:admin@elevatia.org" method="post" encType="text/plain">
+              <form className="space-y-6" action="mailto:zackh@getelevatia.com" method="post" encType="text/plain">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-night-text-secondary mb-1">
                     Name
@@ -54,7 +54,7 @@ export default function ContactPage() {
               <h2 className="text-2xl font-semibold mb-6">Other Ways to Reach Us</h2>
               <div className="space-y-4 text-night-text-secondary">
                 <p>
-                  <strong className="text-night-text">Email:</strong> info@getelevatia.com
+                  <strong className="text-night-text">Email:</strong> zackh@getelevatia.com
                 </p>
                 <p>
                   <strong className="text-night-text">Support Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM EST

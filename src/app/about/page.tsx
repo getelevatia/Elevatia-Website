@@ -45,23 +45,23 @@ export default function AboutPage() {
                 out what to do next.
               </p>
               <p>
-                As someone who experienced this firsthand, I kept running into the same problem.
-                I had the data, the motivation, the abilities, and the goals, but no clear path
-                connecting them. Every wellness journey felt like starting from scratch, piecing
-                together advice from different sources and hoping it all fit together.
+                For me, the mission is personal. I watched people close to me battle chronic
+                illness, and ultimately lose battles that never had to begin. So much of that
+                suffering grew from gaps in preventative health: signals nobody read in time,
+                small corrections nobody made, guidance that never reached the people who
+                needed it most.
               </p>
               <p>
-                That&apos;s why I built Elevatia. Not just another tracking app, but a true wellness
-                companion, one that combines consistency coaching with structured paths, community
-                accountability, and personalized insights that actually adapt to how you live. The goal
-                was always to make real, lasting wellness progress feel achievable for everyone, not just
-                people who can afford a personal trainer or nutritionist.
+                That&apos;s why I built Elevatia. Not another tracking app, but a companion that
+                turns what your body is telling you into clear, daily action. Prevention should
+                not be a luxury reserved for people who can afford a personal trainer or a
+                nutritionist. It should reach everyone, early, while it can still change the story.
               </p>
               <p>
-                Today, Elevatia helps users set meaningful goals, follow proven wellness paths,
-                and stay motivated through features like Coach Chat and Crucible. We&apos;re just
-                getting started, but the mission has never changed: make wellness simpler, smarter,
-                and more personal.
+                Today, Elevatia helps members set meaningful goals, follow proven wellness paths,
+                and stay accountable through features like the Daily Sow and Crucible. We&apos;re
+                just getting started, but the mission has never changed: make wellness simpler,
+                smarter, and more personal.
               </p>
             </div>
           </div>

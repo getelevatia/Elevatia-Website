@@ -1,8 +1,8 @@
 import Eyebrow from './Eyebrow';
 
 const STATS = [
-  { number: '1500+', label: 'Active Users', description: 'Building better habits daily' },
-  { number: '3K+', label: 'Goals Achieved', description: 'Milestones reached and celebrated' },
+  { number: '1,700+', label: 'Active Users', description: 'Building better habits daily' },
+  { number: '10K+', label: 'Goals Achieved', description: 'Milestones reached and celebrated' },
   { number: '77%', label: 'Success Rate', description: 'Active members achieving their goals' },
   { number: '5★', label: 'App Store Rating', description: 'Loved by our community' },
 ];

@@ -72,8 +72,8 @@ export default function TeamPage() {
               The Team
             </h1>
             <p className="section-subtitle text-night-text-secondary max-w-3xl mx-auto">
-              A small team with a simple conviction: wellness guidance should be
-              personal, grounded in science, and built for real life.
+              We believe personal wellness guidance should be personal and
+              available to everyone.
             </p>
           </div>
         </div>

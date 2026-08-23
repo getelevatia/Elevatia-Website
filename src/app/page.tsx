@@ -18,7 +18,7 @@ const PANELS: FeaturePanel[] = [
   },
   {
     screen: '/screens/sow.png',
-    alt: 'Elevatia Daily Sow readout with one right move',
+    alt: 'Elevatia week plan with a daily check-in and completed sow',
     eyebrow: 'Guidance',
     title: 'Deeply personal, by design',
     body: 'Guidance built from neuroscience, hormonal health, your biometrics, your geography, and your background. Dozens of signals become millions of possible daily states, filtered down to your one right move. Because one size fits one.',
@@ -60,7 +60,7 @@ export default function Home() {
             <div className="mt-10 flex flex-col items-center gap-4">
               <AppStoreBadge />
               <p className="text-sm text-white/75">
-                5 stars on the App Store &middot; 1,500+ members
+                5 stars on the App Store &middot; 1,700+ members
               </p>
             </div>
           </div>
