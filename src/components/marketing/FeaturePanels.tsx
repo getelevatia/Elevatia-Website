@@ -45,7 +45,7 @@ function PanelRow({ panel, flip }: { panel: FeaturePanel; flip: boolean }) {
             width={1320}
             height={2868}
             quality={90}
-            sizes="(max-width: 640px) 92vw, 420px"
+            sizes="(max-width: 640px) 184vw, 840px"
             className="h-auto w-full"
           />
         </motion.div>
