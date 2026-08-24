@@ -42,7 +42,7 @@ export default function PhoneShowcase3D() {
                 width={1800}
                 height={3620}
                 quality={90}
-                sizes="(max-width: 640px) 300px, 400px"
+                sizes="(max-width: 640px) 600px, 800px"
                 className="h-auto w-[300px] drop-shadow-[0_45px_80px_rgba(0,0,0,0.6)] sm:w-[400px]"
               />
             </motion.div>
