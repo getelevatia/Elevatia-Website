@@ -7,7 +7,12 @@ export default function TermsOfService() {
         <div className="bg-night-card rounded-lg shadow-lg p-8 md:p-12">
           <h1 className="text-4xl font-bold text-night-text mb-8">Terms of Service</h1>
           <p className="text-night-text-secondary mb-8">
-            <strong>Effective Date:</strong> {new Date().toLocaleDateString()}
+            {/* A FIXED date. This rendered `new Date()`, so the Terms claimed to
+                take effect on whatever day you happened to open them — nobody
+                could tell when they last changed, and no user could establish
+                which version they had agreed to. Update it by hand when the
+                Terms change, which is the point. */}
+            <strong>Effective Date:</strong> August 30, 2026
           </p>
 
           <div className="prose prose-gray max-w-none">
@@ -59,6 +64,12 @@ export default function TermsOfService() {
               </p>
               <p className="text-night-text-secondary mb-4">
                 Always consult with qualified healthcare professionals before making significant changes to your diet, exercise routine, or lifestyle. Do not rely solely on the App for medical advice or treatment decisions.
+              </p>
+              <p className="text-night-text-secondary mb-4">
+                <strong>Cycle tracking is not contraception.</strong> Where the App shows a cycle phase, an estimated next period, or an estimated fertile window, these are estimates calculated from information you entered yourself. They are not measurements, they are not a medical diagnosis, and they are <strong>not a reliable method of avoiding pregnancy</strong>. Elevatia is not a cleared or approved contraceptive device and must not be used as one. No day shown in the App should be treated as safe for unprotected sex. If you are trying to avoid pregnancy, use a contraceptive method and speak to a licensed clinician.
+              </p>
+              <p className="text-night-text-secondary mb-4">
+                Basal body temperature can only confirm that ovulation has likely already happened. It cannot predict ovulation in advance, and the App does not present it as doing so.
               </p>
             </section>
 

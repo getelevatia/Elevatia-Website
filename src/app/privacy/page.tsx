@@ -9,7 +9,7 @@ export default function PrivacyPolicyPage() {
           
           <div className="max-w-4xl mx-auto space-y-8">
             <div className="card-night p-6 sm:p-8">
-              <p className="text-sm text-night-text-muted mb-6">Last updated: June 19, 2025</p>
+              <p className="text-sm text-night-text-muted mb-6">Last updated: August 30, 2026</p>
               
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold mb-4 text-night-text">Introduction</h2>
@@ -57,6 +57,43 @@ export default function PrivacyPolicyPage() {
               </section>
 
               <section className="mb-8">
+                <h3 className="text-xl font-semibold mb-3 text-night-text">Clinical Health Records (iOS only)</h3>
+                <p className="text-night-text-secondary mb-4">
+                  If your doctor, hospital, or lab is connected to Apple Health, you may choose to import clinical records into Elevatia. This is off by default and never happens automatically.
+                </p>
+                <ul className="list-disc list-inside text-night-text-secondary mb-4 space-y-1">
+                  <li><strong>What we request</strong>: lab results and vital signs only. We do not request medications, conditions, procedures, allergies, immunizations, or insurance coverage.</li>
+                  <li><strong>What we keep</strong>: of the records Apple Health returns, only glucose, HbA1c, total cholesterol, HDL, LDL, triglycerides, and blood pressure. Everything else is discarded on your device and never transmitted to us.</li>
+                  <li><strong>When we read</strong>: only when you tap Import, covering the previous two years. There is no background delivery and no schedule.</li>
+                  <li><strong>What we do with it</strong>: readings are charted alongside ones you enter yourself and may influence which daily tasks you are offered. Elevatia does not interpret, score, or diagnose them. They are never used for advertising, never sold, and never sent to a third party. Where our AI coach is involved it receives only a coarse direction derived from a reading &mdash; for example &quot;blood sugar elevated&quot; &mdash; never the measurement itself.</li>
+                  <li><strong>Turning it off</strong>: the Health Records screen withdraws your permission and deletes every imported reading, keeping the ones you entered yourself.</li>
+                </ul>
+              </section>
+
+              <section className="mb-8">
+                <h3 className="text-xl font-semibold mb-3 text-night-text">Cycle, Reproductive and Pregnancy Data</h3>
+                <p className="text-night-text-secondary mb-4">
+                  If you use cycle tracking, everything below is entered by you, is optional, and can be removed one day at a time or all at once.
+                </p>
+                <ul className="list-disc list-inside text-night-text-secondary mb-4 space-y-1">
+                  <li><strong>What you can log</strong>: period flow, whether a day starts a period, symptoms, mood, energy, basal body temperature, ovulation test results, cervical mucus quality, free-text notes, and sexual activity.</li>
+                  <li><strong>What we ask once</strong>: during setup we ask whether you have a menstrual cycle. You may answer &quot;prefer not to say&quot;, which is treated as a decline and not as a &quot;no&quot;.</li>
+                  <li><strong>What you may declare</strong>: hormonal conditions such as PCOS, endometriosis, a thyroid condition, perimenopause, menopause, or adrenal fatigue. These make relevant content <em>more</em> likely to be offered. They never restrict what you are shown.</li>
+                  <li><strong>Pregnancy</strong>: if you give a due date we store it and derive your week and trimester from it each day. Nothing about a pregnancy is inferred without a date you entered.</li>
+                  <li><strong>What we derive</strong>: an estimated cycle phase, typical length, variability, next period and fertile window. These are estimates from your own entries, not measurements.</li>
+                  <li><strong>Where it lives</strong>: in a part of your account only your own signed-in session can read. It is not on the profile document friend search can reach, and no other Elevatia user can read it.</li>
+                  <li><strong>Never shared in-app</strong>: cycle data never appears in the activity feed, in Crucible, on a share card, or to a friend. <strong>Sexual activity is never shown anywhere outside the day you logged it, and is never included in anything sent to an AI model.</strong></li>
+                  <li><strong>Apple Health</strong>: if you choose to import, we read menstrual flow, basal body temperature, ovulation test results, cervical mucus quality, and &mdash; on a supported Apple Watch &mdash; sleeping wrist temperature. Only when you tap it, never in the background, and entries you made in Elevatia are never overwritten.</li>
+                </ul>
+                <p className="text-night-text-secondary mb-4">
+                  <strong>What this is not</strong>: Elevatia is not a medical device and none of this is contraception. A fertile window derived from your logs is not a reliable way to avoid pregnancy, and the app never describes any day as safe for unprotected sex.
+                </p>
+                <p className="text-night-text-secondary">
+                  Reproductive and sexual health information is treated as sensitive personal data. Depending on where you live it may carry additional protections, including as &quot;special category&quot; data under the GDPR and under US state laws covering consumer health data. We do not sell it, do not use it for advertising, and do not disclose it to third parties for their own purposes.
+                </p>
+              </section>
+
+              <section className="mb-8">
                 <h2 className="text-2xl font-semibold mb-4 text-night-text">How We Use Your Information</h2>
                 <ul className="list-disc list-inside text-night-text-secondary space-y-1">
                   <li>To provide and maintain our wellness coaching service</li>
@@ -99,10 +136,11 @@ export default function PrivacyPolicyPage() {
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold mb-4 text-night-text">Data Retention</h2>
                 <ul className="list-disc list-inside text-night-text-secondary space-y-1">
-                  <li>Personal data is retained as long as your account is active</li>
-                  <li>Health data is retained for up to 7 years to provide historical insights</li>
-                  <li>You can request deletion of your data at any time</li>
-                  <li>Some data may be retained longer if required by law</li>
+                  <li>Personal and health data is retained for as long as your account is active. Health history is kept rather than aged out, so that trends stay meaningful over years rather than months.</li>
+                  <li><strong>Deleting your account deletes your data.</strong> It removes your profile, paths and progress, activity history, friendships and Crucible records, all synced and manually entered health data, biomarker readings, imported clinical records, your cycle logs and everything in them, your due date, your declared conditions and quiz answers, and your stored connections to Whoop, Oura, Garmin and Eight Sleep. Deletion is immediate and cannot be undone.</li>
+                  <li>You can delete imported clinical records on their own, delete a single day of cycle data, or clear your due date, at any time without deleting anything else.</li>
+                  <li>A small amount of data may be retained after deletion where the law requires it &mdash; for example records of payments. This never includes health data.</li>
+                  <li>To request deletion by email instead, contact support@elevatia.app.</li>
                 </ul>
               </section>
 
