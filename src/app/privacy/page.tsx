@@ -123,14 +123,16 @@ export default function PrivacyPolicyPage() {
 
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold mb-4 text-night-text">Data Storage and Security</h2>
-                <ul className="list-disc list-inside text-night-text-secondary space-y-1">
-                  <li>Your data is stored securely using Firebase and Google Cloud Platform</li>
-                  <li>All data transmission is encrypted using industry-standard TLS encryption</li>
-                  <li>Data is encrypted at rest using AES-256 encryption</li>
-                  <li>We implement multi-factor authentication and access controls</li>
-                  <li>Regular security audits and monitoring are performed</li>
-                  <li>Health data is stored in compliance with HIPAA security standards where applicable</li>
+                <ul className="list-disc list-inside text-night-text-secondary space-y-1 mb-4">
+                  <li>Your data is stored on Google Cloud Platform, using Firebase, in the United States.</li>
+                  <li>Data is encrypted in transit using TLS, and encrypted at rest by Google Cloud.</li>
+                  <li><strong>Access is enforced per account.</strong> Your health data, cycle logs, due date, biomarkers, imported clinical records and declared conditions are readable only by your own signed-in session. Your connections to Whoop, Oura, Garmin and Eight Sleep are stored where no user account can read them at all, including yours &mdash; only our servers can use them to fetch your data.</li>
+                  <li>If you sign in with Apple or Google, that account&apos;s own two-factor protection applies to your Elevatia sign-in. Elevatia does not currently offer a separate second factor of its own.</li>
+                  <li>We monitor for errors and abuse. Diagnostic logs are write-only from the app and cannot be read back by any user account.</li>
                 </ul>
+                <p className="text-night-text-secondary">
+                  We are a consumer wellness app, not a healthcare provider, health plan, or clearinghouse. <strong>HIPAA does not apply to Elevatia</strong>, and we do not claim to be HIPAA compliant. Health information you give us is protected by this policy and by consumer privacy law, not by HIPAA &mdash; including where you import records that originally came from a provider who is covered by it.
+                </p>
               </section>
 
               <section className="mb-8">
@@ -204,13 +206,12 @@ export default function PrivacyPolicyPage() {
 
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold mb-4 text-night-text">Compliance</h2>
-                <p className="text-night-text-secondary mb-4">This Privacy Policy complies with:</p>
-                <ul className="list-disc list-inside text-night-text-secondary space-y-1">
-                  <li>General Data Protection Regulation (GDPR)</li>
-                  <li>California Consumer Privacy Act (CCPA)</li>
-                  <li>Health Insurance Portability and Accountability Act (HIPAA) where applicable</li>
-                  <li>Apple App Store and Google Play Store privacy requirements</li>
-                </ul>
+                <p className="text-night-text-secondary mb-4">
+                  We aim to meet our obligations under the privacy laws that apply to us, including the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA), along with Apple App Store and Google Play privacy requirements. We honour the rights described above regardless of where you live.
+                </p>
+                <p className="text-night-text-secondary">
+                  We do <strong>not</strong> claim HIPAA compliance. HIPAA applies to healthcare providers, health plans and clearinghouses and their business associates. Elevatia is none of those.
+                </p>
               </section>
             </div>
           </div>
