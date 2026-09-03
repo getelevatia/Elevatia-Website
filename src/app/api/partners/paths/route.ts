@@ -1,33 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { adminAuth, adminDb, SUPER_ADMIN_UID } from '@/lib/firebase-admin';
+import { adminDb } from '@/lib/firebase-admin';
 import { CreatePathForm } from '@/types/partners';
-
-// Verify org admin access
-async function verifyOrgAccess(token: string, organizationId: string) {
-  const decodedToken = await adminAuth.verifyIdToken(token);
-  const uid = decodedToken.uid;
-  
-  if (uid === SUPER_ADMIN_UID) {
-    return { uid, role: 'owner' as const, isSuperAdmin: true };
-  }
-  
-  const adminSnapshot = await adminDb
-    .collection('partnerAdmins')
-    .where('id', '==', uid)
-    .limit(1)
-    .get();
-  
-  if (adminSnapshot.empty) {
-    throw new Error('Not authorized');
-  }
-  
-  const admin = adminSnapshot.docs[0].data();
-  if (admin.organizationId !== organizationId) {
-    throw new Error('Not authorized for this organization');
-  }
-  
-  return { uid, role: admin.role, isSuperAdmin: false };
-}
+import {
+  requireOrgAccess as verifyOrgAccess,
+  requireDocInOrg,
+  statusFor,
+  messageFor,
+} from '@/lib/partner-auth';
 
 // GET - List paths for organization
 export async function GET(request: NextRequest) {
@@ -142,6 +121,10 @@ export async function PATCH(request: NextRequest) {
       return NextResponse.json({ error: 'Viewers cannot update paths' }, { status: 403 });
     }
     
+    // `pathId` is the caller's input and the org check above says nothing
+    // about it. Without this, an admin at one org could edit another's path.
+    await requireDocInOrg('partnerPaths', pathId, access.organizationId);
+    
     // Only allow certain fields to be updated
     const allowedUpdates: Record<string, unknown> = {};
     const editableFields = ['title', 'description', 'icon', 'color', 'category', 'isActive', 'sortOrder'];
@@ -155,7 +138,10 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error updating path:', error);
-    return NextResponse.json({ error: 'Failed to update path' }, { status: 500 });
+    return NextResponse.json(
+      { error: messageFor(error, 'Failed to update path') },
+      { status: statusFor(error) }
+    );
   }
 }
 
@@ -181,12 +167,18 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: 'Viewers cannot delete paths' }, { status: 403 });
     }
     
+    // Same check as PATCH, and it matters more here — this one is destructive.
+    await requireDocInOrg('partnerPaths', pathId, access.organizationId);
+    
     await adminDb.collection('partnerPaths').doc(pathId).delete();
     
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error deleting path:', error);
-    return NextResponse.json({ error: 'Failed to delete path' }, { status: 500 });
+    return NextResponse.json(
+      { error: messageFor(error, 'Failed to delete path') },
+      { status: statusFor(error) }
+    );
   }
 }
 

@@ -2,3 +2,25 @@ node_modules
 .vercel
 .next
 tsconfig.tsbuildinfo
+
+# Environment files.
+#
+# This file previously listed four build artifacts and no env pattern at all,
+# so `.env.local` — carrying a real Firebase Admin private key for the
+# production project — was committed and pushed to a PUBLIC repository. The key
+# was revoked on 2026-09-01; it remains in this repo's history, which is why
+# rotation rather than deletion was the fix.
+#
+# Catch-all on purpose. `.env.local` is not the only name this mistake has.
+.env
+.env.*
+!.env.example
+
+# Service account / admin SDK key files. Never commit one; mint it, paste it
+# into the Vercel environment, and delete the local copy.
+*-key.json
+service-account*.json
+serviceAccount*.json
+
+# OS noise
+.DS_Store

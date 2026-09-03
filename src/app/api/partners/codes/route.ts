@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { adminAuth, adminDb, SUPER_ADMIN_UID } from '@/lib/firebase-admin';
+import { adminDb } from '@/lib/firebase-admin';
 import { CreateCodeForm } from '@/types/partners';
+import {
+  requireOrgAccess as verifyAccess,
+  requireDocInOrg,
+  statusFor,
+  messageFor,
+} from '@/lib/partner-auth';
 
 // Generate a unique code with prefix
 function generateCode(prefix: string, length: number = 6): string {
@@ -10,36 +16,6 @@ function generateCode(prefix: string, length: number = 6): string {
     code += chars.charAt(Math.floor(Math.random() * chars.length));
   }
   return code;
-}
-
-// Verify user is admin for organization
-async function verifyAccess(token: string, organizationId?: string) {
-  const decodedToken = await adminAuth.verifyIdToken(token);
-  const uid = decodedToken.uid;
-  
-  const isSuperAdmin = uid === SUPER_ADMIN_UID;
-  
-  if (isSuperAdmin) {
-    return { uid, isSuperAdmin, role: 'owner' as const };
-  }
-  
-  const adminSnapshot = await adminDb
-    .collection('partnerAdmins')
-    .where('id', '==', uid)
-    .limit(1)
-    .get();
-  
-  if (adminSnapshot.empty) {
-    throw new Error('Not authorized');
-  }
-  
-  const admin = adminSnapshot.docs[0].data();
-  
-  if (organizationId && admin.organizationId !== organizationId) {
-    throw new Error('Not authorized for this organization');
-  }
-  
-  return { uid, isSuperAdmin: false, role: admin.role, organizationId: admin.organizationId };
 }
 
 // GET - List codes for organization
@@ -73,7 +49,10 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ codes, role: access.role });
   } catch (error) {
     console.error('Error fetching codes:', error);
-    return NextResponse.json({ error: 'Failed to fetch codes' }, { status: 500 });
+    return NextResponse.json(
+      { error: messageFor(error, 'Failed to fetch codes') },
+      { status: statusFor(error) }
+    );
   }
 }
 
@@ -146,7 +125,10 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error('Error creating code:', error);
-    return NextResponse.json({ error: 'Failed to create code' }, { status: 500 });
+    return NextResponse.json(
+      { error: messageFor(error, 'Failed to create code') },
+      { status: statusFor(error) }
+    );
   }
 }
 
@@ -162,11 +144,17 @@ export async function PATCH(request: NextRequest) {
     const body = await request.json();
     const { codeId, organizationId, ...updates } = body;
     
+    // organizationId is now REQUIRED by verifyAccess. It used to be optional,
+    // so omitting it from the body skipped the tenant check entirely.
     const access = await verifyAccess(token, organizationId);
     
     if (access.role === 'viewer') {
       return NextResponse.json({ error: 'Viewers cannot update codes' }, { status: 403 });
     }
+    
+    // And the code itself has to belong to that org — `codeId` is the caller's
+    // input, unconstrained by the check above.
+    await requireDocInOrg('partnerCodes', codeId, access.organizationId);
     
     // Only allow certain fields to be updated
     const allowedUpdates: Record<string, unknown> = {};
@@ -179,7 +167,10 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error updating code:', error);
-    return NextResponse.json({ error: 'Failed to update code' }, { status: 500 });
+    return NextResponse.json(
+      { error: messageFor(error, 'Failed to update code') },
+      { status: statusFor(error) }
+    );
   }
 }
 
