@@ -35,18 +35,15 @@ function PanelRow({ panel, flip }: { panel: FeaturePanel; flip: boolean }) {
         </p>
       </div>
       <div className={`flex justify-center ${flip ? 'lg:order-1' : ''}`}>
-        <motion.div
-          style={reduced ? undefined : { y }}
-          className="relative w-full max-w-[420px] overflow-hidden rounded-[2.5rem] ring-1 ring-white/10 bg-night-card shadow-[0_40px_90px_rgba(0,0,0,0.5)]"
-        >
+        <motion.div style={reduced ? undefined : { y }} className="relative">
           <Image
             src={panel.screen}
             alt={panel.alt}
-            width={1320}
-            height={2868}
+            width={1480}
+            height={3028}
             quality={90}
-            sizes="(max-width: 640px) 184vw, 840px"
-            className="h-auto w-full"
+            sizes="(max-width: 640px) 168vw, 840px"
+            className="h-auto w-full max-w-[420px] drop-shadow-[0_40px_80px_rgba(0,0,0,0.55)]"
           />
         </motion.div>
       </div>
