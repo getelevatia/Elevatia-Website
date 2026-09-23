@@ -10,28 +10,35 @@ import Footer from '@/components/layout/Footer';
 
 const PANELS: FeaturePanel[] = [
   {
-    screen: '/screens/areas-2.png',
-    alt: 'Elevatia areas picker: nutrition, fitness, hormonal, mental, maternal and sleep',
+    screen: '/screens/areas-3.png',
+    alt: 'Elevatia Paths screen: nutrition, fitness, women\u2019s wellness, mental, maternal and sleep',
     eyebrow: 'Your Areas',
     title: 'Start where you are',
-    body: 'Pick the parts of your life you want to grow: nutrition, fitness, sleep, mental, hormonal, maternal. Change them any time. Every path meets you at your level.',
+    body: 'Pick the parts of your life you want to grow: nutrition, fitness, sleep, mental, women\u2019s wellness, maternal. Change them any time. Every path meets you at your level.',
   },
   {
-    screen: '/screens/sow-2.png',
-    alt: 'Elevatia week plan with a daily check-in and completed sow',
+    screen: '/screens/sow-3.png',
+    alt: 'Elevatia daily guidance across fitness, nutrition, sleep and women\u2019s wellness',
     eyebrow: 'Guidance',
     title: 'Deeply personal, by design',
     body: 'Guidance built from neuroscience, hormonal health, your biometrics, your geography, and your background. Dozens of signals become millions of possible daily states, filtered down to your one right move. Because one size fits one.',
   },
   {
-    screen: '/screens/connect-2.png',
-    alt: 'Elevatia Connect screen linking Apple Health, Oura, Whoop, and Garmin',
+    screen: '/screens/sky-3.png',
+    alt: 'Sky conversation noting an allergy and an evening training window',
+    eyebrow: 'Sky',
+    title: 'Talk to it like a coach',
+    body: 'Tell Sky your allergies, your hours, your goals in your own words. It remembers, and every plan from then on steers around what it knows about you.',
+  },
+  {
+    screen: '/screens/connect-3.png',
+    alt: 'Elevatia Devices screen linking Apple Health, Oura, Whoop, Garmin, RingConn and 8 Sleep',
     eyebrow: 'Your Signals',
     title: 'Beyond your tracker',
     body: 'Your watch and ring only tell you what happened. The Sky Model turns those signals into the one thing they never give you: what to do next, today, for you.',
   },
   {
-    screen: '/screens/crucible-2.png',
+    screen: '/screens/crucible-3.png',
     alt: 'Elevatia Crucible groups and competitions',
     eyebrow: 'Crucible',
     title: 'Better together',
