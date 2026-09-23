@@ -37,7 +37,7 @@ export default function PhoneShowcase3D() {
           <div className="flex justify-center">
             <motion.div style={reduced ? undefined : { y, opacity }} className="relative">
               <Image
-                src="/media/phone-today-5.png"
+                src="/media/phone-today-6.png"
                 alt="Elevatia today screen with the Daily Sow"
                 width={1480}
                 height={3028}
