@@ -196,6 +196,13 @@
   }
 }
 
+/* iOS Safari draws a start-playback glyph over paused/blocked videos. */
+.hero-video::-webkit-media-controls,
+.hero-video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 @keyframes marquee {
   to {
     transform: translateX(-50%);
