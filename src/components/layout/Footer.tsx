@@ -32,10 +32,10 @@ const Footer = () => {
             </nav>
             <p className="text-sm text-night-text-muted">
               <a
-                href="mailto:zackh@getelevatia.com"
+                href="mailto:notifications@getelevatia.com"
                 className="transition-colors hover:text-night-text-secondary"
               >
-                zackh@getelevatia.com
+                notifications@getelevatia.com
               </a>
               <span className="mx-2" aria-hidden="true">&middot;</span>
               &copy; {new Date().getFullYear()} Elevatia, Co. All rights reserved.
