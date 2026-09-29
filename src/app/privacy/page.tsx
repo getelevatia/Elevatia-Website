@@ -142,7 +142,7 @@ export default function PrivacyPolicyPage() {
                   <li><strong>Deleting your account deletes your data.</strong> It removes your profile, paths and progress, activity history, friendships and Crucible records, all synced and manually entered health data, biomarker readings, imported clinical records, your cycle logs and everything in them, your due date, your declared conditions and quiz answers, and your stored connections to Whoop, Oura, Garmin and Eight Sleep. Deletion is immediate and cannot be undone.</li>
                   <li>You can delete imported clinical records on their own, delete a single day of cycle data, or clear your due date, at any time without deleting anything else.</li>
                   <li>A small amount of data may be retained after deletion where the law requires it &mdash; for example records of payments. This never includes health data.</li>
-                  <li>To request deletion by email instead, contact support@elevatia.app.</li>
+                  <li>To request deletion by email instead, contact notifications@getelevatia.com.</li>
                 </ul>
               </section>
 
