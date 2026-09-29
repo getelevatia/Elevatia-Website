@@ -9,7 +9,7 @@ export default function PrivacyPolicyPage() {
           
           <div className="max-w-4xl mx-auto space-y-8">
             <div className="card-night p-6 sm:p-8">
-              <p className="text-sm text-night-text-muted mb-6">Last updated: August 30, 2026</p>
+              <p className="text-sm text-night-text-muted mb-6">Last updated: September 29, 2026</p>
               
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold mb-4 text-night-text">Introduction</h2>
@@ -34,7 +34,7 @@ export default function PrivacyPolicyPage() {
                   We collect health-related information to provide personalized wellness insights and track your progress. This includes:
                 </p>
                 <ul className="list-disc list-inside text-night-text-secondary mb-6 space-y-1">
-                  <li>Health metrics from your device (HealthKit on iOS, Google Fit on Android)</li>
+                  <li>Health metrics from your device (HealthKit on iOS, Health Connect on Android)</li>
                   <li>Activity data (steps, workouts, sleep patterns)</li>
                   <li>Wellness goals and preferences</li>
                   <li>Progress tracking and achievement data</li>
@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
                   <li><strong>Oura Ring</strong>: Sleep quality, readiness, activity, and temperature data</li>
                   <li><strong>Eight Sleep</strong>: Sleep tracking, temperature preferences, and sleep environment data</li>
                   <li><strong>Apple HealthKit</strong>: Comprehensive health and fitness data from your iPhone</li>
-                  <li><strong>Google Fit</strong>: Activity and health data from Android devices</li>
+                  <li><strong>Health Connect (Android)</strong>: with your permission, and only for the kinds of data you switch on, we read steps, active calories burned, exercise sessions, sleep (including sleep stages), resting heart rate, heart rate variability, oxygen saturation and respiratory rate. We read only; Elevatia writes nothing to Health Connect. This data is used to personalise your own guidance and is shown back to you. It is never used for advertising, never sold, and never shared with third parties for their own purposes. You can change or withdraw each permission at any time in Health Connect, and disconnecting in Elevatia gives the permissions back.</li>
                 </ul>
                 <p className="text-night-text-secondary">
                   You can revoke access to any third-party service at any time through your device settings or the respective service&apos;s privacy controls.
@@ -116,6 +116,7 @@ export default function PrivacyPolicyPage() {
                 <ul className="list-disc list-inside text-night-text-secondary space-y-1">
                   <li><strong>With your consent</strong>: When you explicitly authorize us to share data</li>
                   <li><strong>Service providers</strong>: With trusted third-party services that help us operate our app (Firebase, analytics providers)</li>
+                  <li><strong>Advertising measurement</strong>: we use Meta&apos;s tools to learn which of our own ads led someone to install Elevatia or subscribe. For this we send Meta a limited set of events (such as completing registration or starting a subscription), an account identifier and your device&apos;s advertising identifier. We never send Meta health data, cycle data, check-ins or anything you write in the app. You can limit this in your device settings: on iPhone under Privacy &amp; Security &gt; Tracking, and on Android under Privacy &gt; Ads.</li>
                   <li><strong>Legal requirements</strong>: When required by law, court order, or government request</li>
                   <li><strong>Safety purposes</strong>: To protect the rights, property, or safety of Elevatia, our users, or others</li>
                 </ul>
@@ -142,7 +143,7 @@ export default function PrivacyPolicyPage() {
                   <li><strong>Deleting your account deletes your data.</strong> It removes your profile, paths and progress, activity history, friendships and Crucible records, all synced and manually entered health data, biomarker readings, imported clinical records, your cycle logs and everything in them, your due date, your declared conditions and quiz answers, and your stored connections to Whoop, Oura, Garmin and Eight Sleep. Deletion is immediate and cannot be undone.</li>
                   <li>You can delete imported clinical records on their own, delete a single day of cycle data, or clear your due date, at any time without deleting anything else.</li>
                   <li>A small amount of data may be retained after deletion where the law requires it &mdash; for example records of payments. This never includes health data.</li>
-                  <li>To request deletion by email instead, contact notifications@getelevatia.com.</li>
+                  <li>To request deletion by email instead, contact notifications@getelevatia.com. You can also request deletion without the app installed at <a href="https://www.getelevatia.com/delete-account" className="text-bronze underline hover:text-bronze-bright">https://www.getelevatia.com/delete-account</a>.</li>
                 </ul>
               </section>
 
