@@ -26,10 +26,10 @@ export default function DeleteAccountPage() {
                 </p>
                 <p className="mb-4">
                   <a
-                    href="mailto:support@elevatia.app?subject=Delete%20my%20account"
+                    href="mailto:notifications@getelevatia.com?subject=Delete%20my%20account"
                     className="inline-flex items-center justify-center px-8 py-3 text-sm font-semibold text-night bg-bronze rounded-full hover:bg-bronze-bright transition-colors"
                   >
-                    Email support@elevatia.app to delete your account
+                    Email notifications@getelevatia.com to delete your account
                   </a>
                 </p>
                 <p className="text-night-text-secondary">
