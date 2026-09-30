@@ -32,7 +32,7 @@ function VerifyEmailContent() {
     // Fallback: redirect to app store if deep link doesn't work
     setTimeout(() => {
       // If user is still on this page after 3 seconds, redirect to app store
-      window.location.href = 'https://apps.apple.com/app/elevatia/id6670204991';
+      window.location.href = 'https://apps.apple.com/app/elevatia/id6747624957';
     }, 3000);
   }, [searchParams]);
 
@@ -66,7 +66,7 @@ function VerifyEmailContent() {
         <div className="text-sm text-night-text-muted space-y-2">
           <p>If the app doesn&apos;t open automatically:</p>
           <a 
-            href="https://apps.apple.com/app/elevatia/id6670204991"
+            href="https://apps.apple.com/app/elevatia/id6747624957"
             className="inline-block bg-bronze text-night px-6 py-2 rounded-lg font-medium hover:bg-bronze-bright transition-colors"
           >
             Download from App Store

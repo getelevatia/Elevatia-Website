@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Eyebrow from '@/components/marketing/Eyebrow';
 import AppStoreBadge from '@/components/marketing/AppStoreBadge';
 import HeroVideo from '@/components/marketing/HeroVideo';
@@ -69,6 +70,12 @@ export default function Home() {
               <p className="text-sm text-white/75">
                 5 stars on the App Store &middot; 1,700+ members
               </p>
+              <Link
+                href="/text"
+                className="text-sm font-medium text-bronze underline-offset-4 hover:underline"
+              >
+                Or just text Sky, no app needed
+              </Link>
             </div>
           </div>
         </div>

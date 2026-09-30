@@ -10,6 +10,7 @@ import {
   signInWithPhoneNumber,
   linkWithCredential,
   OAuthProvider,
+  GoogleAuthProvider,
   RecaptchaVerifier,
   ConfirmationResult,
   PhoneAuthProvider,
@@ -35,6 +36,7 @@ interface AuthContextType {
   error: string | null;
   signIn: (email: string, password: string) => Promise<AuthResult>;
   signInWithApple: () => Promise<AuthResult>;
+  signInWithGoogle: () => Promise<AuthResult>;
   sendPhoneCode: (phoneNumber: string, recaptchaVerifier: RecaptchaVerifier) => Promise<{ success: boolean; confirmationResult?: ConfirmationResult; error?: string }>;
   verifyPhoneCode: (confirmationResult: ConfirmationResult, code: string) => Promise<AuthResult>;
   linkAccountWithEmail: (email: string, password: string, pendingCredential: AuthCredential) => Promise<AuthResult>;
@@ -44,7 +46,18 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export function AuthProvider({ children }: { children: ReactNode }) {
+/**
+ * Two audiences share one provider.
+ *
+ * `partner` (the default, and every existing caller): a sign-in must resolve
+ * to a partner admin, or it is handed to the linking flow.
+ * `consumer`: any Elevatia account is welcome. The account area on the site
+ * uses this; a member signing in with the phone they text Sky from has no
+ * partner record and must not be sent to link one.
+ */
+export type AuthScope = 'partner' | 'consumer';
+
+export function AuthProvider({ children, scope = 'partner' }: { children: ReactNode; scope?: AuthScope }) {
   const [user, setUser] = useState<User | null>(null);
   const [partnerAdmin, setPartnerAdmin] = useState<PartnerAdmin | null>(null);
   const [organization, setOrganization] = useState<Organization | null>(null);
@@ -54,6 +67,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   // Verify partner admin status after any auth
   const verifyPartnerAdmin = async (firebaseUser: User): Promise<AuthResult> => {
+    if (scope === 'consumer') return { success: true };
     const token = await firebaseUser.getIdToken();
     const res = await fetch('/api/partners/auth', {
       headers: { Authorization: `Bearer ${token}` }
@@ -83,7 +97,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       setUser(firebaseUser);
       
-      if (firebaseUser) {
+      if (firebaseUser && scope === 'consumer') {
+        setPartnerAdmin(null);
+        setOrganization(null);
+        setIsSuperAdmin(false);
+      } else if (firebaseUser) {
         try {
           const token = await firebaseUser.getIdToken();
           const res = await fetch('/api/partners/auth', {
@@ -116,7 +134,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [scope]);
 
   // Email/Password sign in
   const signIn = async (email: string, password: string): Promise<AuthResult> => {
@@ -156,6 +174,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return verifyResult;
     } catch (err: unknown) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to sign in with Apple';
+      setError(errorMessage);
+      return { success: false, error: errorMessage };
+    }
+  };
+
+  // Google Sign In
+  const signInWithGoogle = async (): Promise<AuthResult> => {
+    try {
+      setError(null);
+      const provider = new GoogleAuthProvider();
+      provider.addScope('email');
+      const result = await signInWithPopup(auth, provider);
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const verifyResult = await verifyPartnerAdmin(result.user);
+      if (verifyResult.needsLinking && credential) {
+        await firebaseSignOut(auth);
+        return { ...verifyResult, pendingCredential: credential };
+      }
+      return verifyResult;
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to sign in with Google';
       setError(errorMessage);
       return { success: false, error: errorMessage };
     }
@@ -254,6 +293,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       error, 
       signIn,
       signInWithApple,
+      signInWithGoogle,
       sendPhoneCode,
       verifyPhoneCode,
       linkAccountWithEmail,

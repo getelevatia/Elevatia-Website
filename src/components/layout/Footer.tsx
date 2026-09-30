@@ -5,6 +5,8 @@ const LINKS = [
   { href: '/team', label: 'Team' },
   { href: '/privacy', label: 'Privacy Policy' },
   { href: '/terms', label: 'Terms of Service' },
+  { href: '/text', label: 'Text Sky' },
+  { href: '/account', label: 'Account' },
   { href: '/delete-account', label: 'Delete account' },
   { href: '/partners', label: 'Partners' },
   { href: '/contact', label: 'Contact' },

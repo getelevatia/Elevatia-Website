@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { RecaptchaVerifier, ConfirmationResult, AuthCredential } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { useAuth } from '@/lib/auth-context';
+import PhoneNumberInput from '@/components/account/PhoneNumberInput';
 
 type AuthMethod = 'email' | 'apple' | 'phone';
 type ViewState = 'login' | 'link-account';
@@ -109,10 +110,12 @@ export default function LoginForm() {
     setLoading(true);
     setError('');
 
-    // Format phone number (add +1 if no country code)
-    let formattedPhone = phoneNumber.trim();
-    if (!formattedPhone.startsWith('+')) {
-      formattedPhone = '+1' + formattedPhone.replace(/\D/g, '');
+    // E.164 already: the dial-code dropdown builds it.
+    const formattedPhone = phoneNumber.trim();
+    if (formattedPhone.replace(/\D/g, '').length < 8) {
+      setError('That number looks short.');
+      setLoading(false);
+      return;
     }
 
     const result = await sendPhoneCode(formattedPhone, recaptchaVerifierRef.current);
@@ -406,16 +409,7 @@ export default function LoginForm() {
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                   Phone Number
                 </label>
-                <input
-                  id="phone"
-                  type="tel"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  required
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all bg-white/80"
-                  placeholder="+1 (555) 123-4567"
-                />
-                <p className="text-xs text-gray-500 mt-1">Include country code (e.g., +1 for US)</p>
+                <PhoneNumberInput onChange={setPhoneNumber} tone="light" />
               </div>
 
               <button

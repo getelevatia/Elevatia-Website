@@ -30,6 +30,12 @@ export default function MainNav() {
           About
         </Link>
         <Link
+          href="/account"
+          className="px-2 text-sm font-medium text-night-text-secondary transition-colors hover:text-night-text"
+        >
+          Account
+        </Link>
+        <Link
           href="/contact"
           className="rounded-full bg-bronze px-4 py-2 text-sm font-semibold text-night transition-colors hover:bg-bronze-bright"
         >
