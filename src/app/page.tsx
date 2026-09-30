@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import Eyebrow from '@/components/marketing/Eyebrow';
+import TextElevatiaButton from '@/components/marketing/TextElevatiaButton';
 import AppStoreBadge from '@/components/marketing/AppStoreBadge';
 import HeroVideo from '@/components/marketing/HeroVideo';
 import PhoneShowcase3D from '@/components/marketing/PhoneShowcase3D';
@@ -55,27 +54,20 @@ export default function Home() {
       <section className="relative flex min-h-[100svh] items-center justify-center">
         <HeroVideo />
         <div className="container relative pb-24 pt-36 text-center">
-          <div className="mx-auto max-w-4xl">
-            <Eyebrow pill>One right move a day</Eyebrow>
-            <h1 className="mt-8 text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
-              We tell you what to do next
-              <span className="block">to better your life.</span>
+          <div className="mx-auto max-w-5xl">
+            <h1 className="text-6xl font-bold leading-[1.02] tracking-tight text-white sm:text-7xl lg:text-8xl">
+              Your Fully Personalized
+              <span className="block">Life Coach</span>
             </h1>
-            <p className="mx-auto mt-8 max-w-2xl text-lg text-white/90 sm:text-xl">
-              Elevatia reads where your body is at and hands you one right move
-              for the day. The Sky Model makes life improvement stick.
-            </p>
-            <div className="mt-10 flex flex-col items-center gap-4">
-              <AppStoreBadge />
+            {/* Two doors, side by side: the app, or a text. */}
+            <div className="mt-12 flex flex-col items-center gap-5">
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <AppStoreBadge />
+                <TextElevatiaButton number={process.env.NEXT_PUBLIC_ELEVATIA_TEXT_NUMBER ?? ''} variant="light" />
+              </div>
               <p className="text-sm text-white/75">
                 5 stars on the App Store &middot; 1,700+ members
               </p>
-              <Link
-                href="/text"
-                className="text-sm font-medium text-bronze underline-offset-4 hover:underline"
-              >
-                Or just text Sky, no app needed
-              </Link>
             </div>
           </div>
         </div>
