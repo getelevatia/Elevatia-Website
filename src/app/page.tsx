@@ -65,8 +65,8 @@ export default function Home() {
             {/* Two doors, stacked at the right: the app, or a text, and two
                 lines on what the coaching is like. */}
             <div className="flex shrink-0 flex-col items-start gap-4 lg:items-end lg:text-right">
-              <TextElevatiaButton number={process.env.NEXT_PUBLIC_ELEVATIA_TEXT_NUMBER ?? ''} variant="light" />
-              <AppStoreBadge large />
+              <TextElevatiaButton number={process.env.NEXT_PUBLIC_ELEVATIA_TEXT_NUMBER ?? ''} variant="light" label="Start improving" />
+              <AppStoreBadge width={324} />
               <p className="mt-3 max-w-xl text-xl leading-snug text-white/90 sm:text-2xl">
                 Coaching that moves with your day.
                 <span className="block">Every nudge, one step closer to your goals.</span>

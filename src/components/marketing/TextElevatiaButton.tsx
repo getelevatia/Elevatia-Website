@@ -14,10 +14,12 @@ import MessagesIcon from './MessagesIcon';
 export default function TextElevatiaButton({
   number,
   variant = 'bronze',
+  label = 'Text Elevatia',
 }: {
   number: string;
   /** `light` is the hero's white pill beside the App Store badge. */
   variant?: 'bronze' | 'light';
+  label?: string;
 }) {
   const [isIOS, setIsIOS] = useState<boolean | null>(null);
   useEffect(() => {
@@ -40,12 +42,12 @@ export default function TextElevatiaButton({
         href={href}
         className={
           variant === 'light'
-            ? 'inline-flex h-16 items-center gap-3 rounded-2xl bg-white px-7 text-xl font-medium text-night shadow-lg transition-transform duration-300 hover:scale-105'
+            ? 'inline-flex h-24 w-[324px] items-center justify-center gap-4 rounded-3xl bg-white px-8 text-[1.75rem] font-medium text-night shadow-lg transition-transform duration-300 hover:scale-105'
             : 'inline-flex items-center gap-3 rounded-full bg-bronze px-7 py-4 text-base font-semibold text-night shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-bronze-bright'
         }
       >
-        <MessagesIcon size={variant === 'light' ? 30 : 24} />
-        Text Elevatia
+        <MessagesIcon size={variant === 'light' ? 44 : 24} />
+        {label}
       </a>
       {isIOS === false && variant !== 'light' && (
         <p className="text-sm text-white/75">
