@@ -38,7 +38,7 @@ export default function AccountMessagingPage() {
   };
 
   const unlink = async () => {
-    if (!confirm('Stop texting with Sky? Nudges go back to notifications.')) return;
+    if (!confirm('Stop texting with Elevatia? Nudges go back to notifications.')) return;
     setBusy(true);
     try {
       await unlinkMessaging();
@@ -52,9 +52,9 @@ export default function AccountMessagingPage() {
   return (
     <div className="mx-auto max-w-2xl space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-white">Text Sky</h1>
+        <h1 className="text-2xl font-bold text-white">Text Elevatia</h1>
         <p className="mt-2 text-night-text-secondary">
-          Sky in your Messages. Text her like a friend, and the day&apos;s nudges arrive as texts instead of notifications.
+          Elevatia in your Messages. Text it like a friend, and the day&apos;s nudges arrive as texts instead of notifications.
         </p>
       </div>
 
@@ -65,7 +65,7 @@ export default function AccountMessagingPage() {
       ) : linked ? (
         <div className="card-night space-y-3 p-6">
           <p className="font-semibold text-white">Linked to the number ending {link?.last4 ?? '····'}</p>
-          <p className="text-sm text-night-text-secondary">Sky texts you her nudge, the midday adjustment and the evening line. Everything else stays a notification in the app.</p>
+          <p className="text-sm text-night-text-secondary">Elevatia texts you its nudge, the midday adjustment and the evening line. Everything else stays a notification in the app.</p>
           <p className="text-sm text-night-text-secondary">Reply STOP in Messages to pause, START to resume.</p>
           <button type="button" onClick={unlink} disabled={busy} className="rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/5 disabled:opacity-50">Unlink</button>
         </div>
@@ -74,7 +74,7 @@ export default function AccountMessagingPage() {
           {link?.state === 'opted_out' && <p className="text-sm text-night-text-secondary">You replied STOP. Text START to Elevatia, or link again here.</p>}
           <ol className="space-y-2 text-night-text-secondary">
             <li><span className="font-semibold text-bronze">1.</span> Tap the button. On a phone, Messages opens with your first text ready.</li>
-            <li><span className="font-semibold text-bronze">2.</span> Send it. Sky replies and sends her contact card.</li>
+            <li><span className="font-semibold text-bronze">2.</span> Send it. Elevatia replies and sends its contact card.</li>
           </ol>
           <button type="button" onClick={start} disabled={busy} className="rounded-full bg-bronze px-6 py-3 font-semibold text-night hover:bg-bronze-bright disabled:opacity-50">
             {busy ? 'One moment' : 'Text Elevatia'}

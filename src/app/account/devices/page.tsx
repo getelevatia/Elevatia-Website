@@ -74,7 +74,7 @@ export default function DevicesPage() {
     <div className="mx-auto max-w-2xl space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-white">Devices</h1>
-        <p className="mt-2 text-night-text-secondary">What Sky reads each morning. Connect a wearable here and it lands in the app too.</p>
+        <p className="mt-2 text-night-text-secondary">What Elevatia reads each morning. Connect a wearable here and it lands in the app too.</p>
       </div>
       {error && <div className="rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">{error}</div>}
 

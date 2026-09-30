@@ -9,7 +9,7 @@ import { db, functions } from './firebase';
 
 const call = <Req, Res>(name: string) => httpsCallable<Req, Res>(functions, name);
 
-// ── Sky in Messages ──
+// ── Elevatia in Messages ──
 
 export interface MessagingLink {
   last4?: string;

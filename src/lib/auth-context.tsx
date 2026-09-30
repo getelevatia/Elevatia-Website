@@ -52,7 +52,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
  * `partner` (the default, and every existing caller): a sign-in must resolve
  * to a partner admin, or it is handed to the linking flow.
  * `consumer`: any Elevatia account is welcome. The account area on the site
- * uses this; a member signing in with the phone they text Sky from has no
+ * uses this; a member signing in with the phone they text Elevatia from has no
  * partner record and must not be sent to link one.
  */
 export type AuthScope = 'partner' | 'consumer';

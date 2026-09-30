@@ -11,7 +11,7 @@ const ANNUAL = process.env.NEXT_PUBLIC_STRIPE_PRICE_ANNUAL ?? '';
 const ROWS: Array<[string, string, string]> = [
   ['Focus areas', '2', 'All 6'],
   ['Daily guidance', 'Written once each morning', 'Rewritten as your day changes'],
-  ['Messages to Sky a day', '5', 'Unlimited'],
+  ['Messages to your coach a day', '5', 'Unlimited'],
   ['Check-ins a day', '2', '8'],
   ['Connected devices', '1', 'Unlimited'],
   ['Weekly plan', 'No', 'Yes'],
@@ -49,7 +49,7 @@ export default function UpgradePage() {
     <div className="mx-auto max-w-3xl space-y-8">
       <div className="text-center">
         <h1 className="text-3xl font-bold text-white">Elevatia Pro</h1>
-        <p className="mt-3 text-night-text-secondary">A plan that changes as your day does, every area, and Sky without a cap.</p>
+        <p className="mt-3 text-night-text-secondary">A plan that changes as your day does, every area, and a coach without a cap.</p>
       </div>
 
       {already ? (

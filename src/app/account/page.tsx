@@ -68,7 +68,7 @@ function AccountOverview() {
       </section>
 
       <section className="card-night p-6">
-        <h2 className="text-lg font-semibold text-white">Sky in Messages</h2>
+        <h2 className="text-lg font-semibold text-white">Elevatia in Messages</h2>
         <p className="mt-2 text-night-text-secondary">
           {link?.state === 'active'
             ? `Linked to the number ending ${link.last4 ?? '····'}.`
@@ -77,7 +77,7 @@ function AccountOverview() {
               : 'Not linked yet.'}
         </p>
         <Link href="/account/imessage" className="mt-4 inline-block text-sm font-medium text-bronze hover:underline">
-          {link?.state === 'active' ? 'Manage' : 'Text Sky'}
+          {link?.state === 'active' ? 'Manage' : 'Text Elevatia'}
         </Link>
       </section>
 

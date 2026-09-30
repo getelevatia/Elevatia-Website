@@ -53,7 +53,7 @@ function AccountNav() {
   if (!user || pathname === '/account/login') return null;
   const items = [
     { href: '/account', label: 'Overview' },
-    { href: '/account/imessage', label: 'Text Sky' },
+    { href: '/account/imessage', label: 'Text Elevatia' },
     { href: '/account/upgrade', label: 'Pro' },
     { href: '/account/devices', label: 'Devices' },
   ];

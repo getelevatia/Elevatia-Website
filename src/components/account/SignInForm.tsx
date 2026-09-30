@@ -11,7 +11,7 @@ type Method = 'phone' | 'apple' | 'google' | 'email';
 
 /**
  * The member sign-in. Phone first: the people who arrive from a text with
- * Sky have a phone number and nothing else. Apple, Google and email cover
+ * Elevatia have a phone number and nothing else. Apple, Google and email cover
  * everyone who signed up in the app.
  */
 export default function SignInForm({ tone = 'night' }: { tone?: 'night' | 'light' }) {
@@ -141,7 +141,7 @@ export default function SignInForm({ tone = 'night' }: { tone?: 'night' | 'light
 
       {method === 'phone' && !codeSent && (
         <form onSubmit={sendCode} className="space-y-4">
-          <p className={`text-center text-sm ${muted}`}>The number you use with Elevatia, or the one you text Sky from.</p>
+          <p className={`text-center text-sm ${muted}`}>The number you use with Elevatia, or the one you text Elevatia from.</p>
           <PhoneNumberInput onChange={setE164} tone={tone} />
           <button type="submit" disabled={loading} className={primary}>{loading ? 'Sending' : 'Send code'}</button>
         </form>

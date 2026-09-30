@@ -25,10 +25,10 @@ const PANELS: FeaturePanel[] = [
   },
   {
     screen: '/screens/sky-4.png',
-    alt: 'Sky conversation noting an allergy and an evening training window',
-    eyebrow: 'Sky',
+    alt: 'Elevatia coach conversation noting an allergy and an evening training window',
+    eyebrow: 'Your coach',
     title: 'Talk to it like a coach',
-    body: 'Tell Sky your allergies, your hours, your goals in your own words. It remembers, and every plan from then on steers around what it knows about you.',
+    body: 'Tell Elevatia your allergies, your hours, your goals in your own words. It remembers, and every plan from then on steers around what it knows about you.',
   },
   {
     screen: '/screens/connect-4.png',

@@ -4,7 +4,7 @@ const LINKS = [
   { href: '/about', label: 'About' },
   { href: '/privacy', label: 'Privacy Policy' },
   { href: '/terms', label: 'Terms of Service' },
-  { href: '/text', label: 'Text Sky' },
+  { href: '/text', label: 'Text Elevatia' },
   { href: '/account', label: 'Account' },
   { href: '/delete-account', label: 'Delete account' },
   { href: '/partners', label: 'Partners' },
