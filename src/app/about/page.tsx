@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import Footer from '@/components/layout/Footer';
 
@@ -99,14 +98,6 @@ export default function AboutPage() {
                 habits accessible to everyone.
               </p>
             </div>
-            <p className="mt-8">
-              <Link
-                href="/team"
-                className="text-bronze font-semibold hover:text-bronze-bright transition-colors"
-              >
-                Meet the full team →
-              </Link>
-            </p>
           </div>
         </div>
       </section>

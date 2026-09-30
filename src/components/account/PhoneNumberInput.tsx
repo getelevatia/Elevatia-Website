@@ -31,26 +31,40 @@ export default function PhoneNumberInput({
 
   const field =
     tone === 'night'
-      ? 'border-white/15 bg-white/5 text-white placeholder:text-white/40 focus:border-bronze focus:ring-bronze'
-      : 'border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:border-transparent focus:ring-orange-500';
+      ? 'text-white placeholder:text-white/40'
+      : 'text-gray-900 placeholder:text-gray-400';
+
+  const shell =
+    tone === 'night'
+      ? 'border-white/15 bg-white/5 focus-within:border-bronze focus-within:ring-bronze'
+      : 'border-gray-200 bg-white focus-within:border-transparent focus-within:ring-orange-500';
 
   return (
-    <div className="flex gap-2">
-      <select
-        aria-label="Country code"
-        value={`${country.country}`}
-        onChange={(e) => {
-          const next = COUNTRIES.find((c) => c.country === e.target.value);
-          if (next) setCountry(next);
-        }}
-        className={`w-[7.5rem] shrink-0 rounded-xl border px-2 py-3 text-sm outline-none transition-all focus:ring-2 ${field}`}
-      >
-        {COUNTRIES.map((c) => (
-          <option key={c.country} value={c.country} className="text-gray-900">
-            {c.flag} {c.code} {c.name}
-          </option>
-        ))}
-      </select>
+    <div className={`flex items-stretch rounded-xl border transition-all focus-within:ring-2 ${shell}`}>
+      {/* The closed control shows only the flag; the native list underneath
+          carries every name and dial code. A transparent select over a
+          flag keeps the keyboard and screen-reader behaviour of a select. */}
+      <div className={`relative flex shrink-0 items-center gap-1 border-r px-3 ${tone === 'night' ? 'border-white/15' : 'border-gray-200'}`}>
+        <span aria-hidden="true" className="text-xl leading-none">{country.flag}</span>
+        <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" className={tone === 'night' ? 'text-white/60' : 'text-gray-500'}>
+          <path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <select
+          aria-label="Country code"
+          value={country.country}
+          onChange={(e) => {
+            const next = COUNTRIES.find((c) => c.country === e.target.value);
+            if (next) setCountry(next);
+          }}
+          className="absolute inset-0 cursor-pointer opacity-0"
+        >
+          {COUNTRIES.map((c) => (
+            <option key={c.country} value={c.country}>
+              {c.flag} {c.name} ({c.code})
+            </option>
+          ))}
+        </select>
+      </div>
       <input
         id={id}
         type="tel"
@@ -59,8 +73,8 @@ export default function PhoneNumberInput({
         value={national}
         onChange={(e) => setNational(e.target.value.replace(/[^\d\s()-]/g, ''))}
         required
-        className={`w-full rounded-xl border px-4 py-3 outline-none transition-all focus:ring-2 ${field}`}
-        placeholder={country.code === '+1' ? '(555) 123-4567' : 'Phone number'}
+        className={`w-full rounded-r-xl bg-transparent px-4 py-3 outline-none ${field}`}
+        placeholder={country.code === '+1' ? '(123) 456-7890' : 'Phone number'}
       />
     </div>
   );

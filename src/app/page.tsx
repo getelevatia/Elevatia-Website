@@ -53,20 +53,20 @@ export default function Home() {
       {/* Hero: sky video fading into the dark page */}
       <section className="relative flex min-h-[100svh] items-center justify-center">
         <HeroVideo />
-        <div className="container relative pb-24 pt-36 text-center">
-          <div className="mx-auto max-w-5xl">
-            <h1 className="text-6xl font-bold leading-[1.02] tracking-tight text-white sm:text-7xl lg:text-8xl">
+        <div className="container relative pb-24 pt-36">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
+            <h1 className="max-w-3xl text-left text-6xl font-bold leading-[1.02] tracking-tight text-white sm:text-7xl lg:text-8xl">
               Your Fully Personalized
               <span className="block">Life Coach</span>
             </h1>
-            {/* Two doors, side by side: the app, or a text. */}
-            <div className="mt-12 flex flex-col items-center gap-5">
-              <div className="flex flex-wrap items-center justify-center gap-4">
-                <AppStoreBadge />
-                <TextElevatiaButton number={process.env.NEXT_PUBLIC_ELEVATIA_TEXT_NUMBER ?? ''} variant="light" />
-              </div>
-              <p className="text-sm text-white/75">
-                5 stars on the App Store &middot; 1,700+ members
+            {/* Two doors, stacked at the right: the app, or a text, and two
+                lines on what the coaching is like. */}
+            <div className="flex flex-col items-start gap-3 lg:items-end lg:text-right">
+              <TextElevatiaButton number={process.env.NEXT_PUBLIC_ELEVATIA_TEXT_NUMBER ?? ''} variant="light" />
+              <AppStoreBadge />
+              <p className="mt-2 max-w-md text-lg leading-snug text-white/90">
+                Coaching that moves with your day.
+                <span className="block">Every nudge, one step closer to your goals.</span>
               </p>
             </div>
           </div>

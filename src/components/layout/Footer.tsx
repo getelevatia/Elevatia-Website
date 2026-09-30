@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 const LINKS = [
   { href: '/about', label: 'About' },
-  { href: '/team', label: 'Team' },
   { href: '/privacy', label: 'Privacy Policy' },
   { href: '/terms', label: 'Terms of Service' },
   { href: '/text', label: 'Text Sky' },

@@ -14,7 +14,7 @@ type Method = 'phone' | 'apple' | 'google' | 'email';
  * Sky have a phone number and nothing else. Apple, Google and email cover
  * everyone who signed up in the app.
  */
-export default function SignInForm() {
+export default function SignInForm({ tone = 'night' }: { tone?: 'night' | 'light' }) {
   const router = useRouter();
   const params = useSearchParams();
   const next = params.get('next') || '/account';
@@ -107,19 +107,30 @@ export default function SignInForm() {
         setConfirmation(null);
       }}
       className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
-        method === id ? 'bg-white/10 text-white' : 'text-night-text-secondary hover:text-white'
+        method === id
+          ? light ? 'bg-white text-gray-900 shadow-sm' : 'bg-white/10 text-white'
+          : light ? 'text-gray-600 hover:text-gray-900' : 'text-night-text-secondary hover:text-white'
       }`}
     >
       {label}
     </button>
   );
 
-  const field = 'w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none transition-all focus:border-bronze focus:ring-2 focus:ring-bronze';
-  const primary = 'w-full rounded-full bg-bronze px-4 py-3 font-semibold text-night transition-colors hover:bg-bronze-bright disabled:cursor-not-allowed disabled:opacity-50';
+  const light = tone === 'light';
+  const field = light
+    ? 'w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder:text-gray-400 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-bronze'
+    : 'w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none transition-all focus:border-bronze focus:ring-2 focus:ring-bronze';
+  const primary = light
+    ? 'w-full rounded-full bg-night px-4 py-3.5 font-semibold text-white transition-colors hover:bg-night/90 disabled:cursor-not-allowed disabled:opacity-40'
+    : 'w-full rounded-full bg-bronze px-4 py-3 font-semibold text-night transition-colors hover:bg-bronze-bright disabled:cursor-not-allowed disabled:opacity-50';
+  const muted = light ? 'text-gray-600' : 'text-night-text-secondary';
+  const oauthBtn = light
+    ? 'w-full rounded-full border border-gray-200 bg-white px-4 py-3 font-semibold text-gray-900 transition-colors hover:bg-gray-50 disabled:opacity-50'
+    : 'w-full rounded-full bg-white px-4 py-3 font-semibold text-black transition-colors hover:bg-white/90 disabled:opacity-50';
 
   return (
     <div className="space-y-6">
-      <div className="flex rounded-xl bg-white/5 p-1">
+      <div className={`flex rounded-xl p-1 ${light ? 'bg-gray-100' : 'bg-white/5'}`}>
         {tab('phone', 'Phone')}
         {tab('apple', 'Apple')}
         {tab('google', 'Google')}
@@ -130,15 +141,15 @@ export default function SignInForm() {
 
       {method === 'phone' && !codeSent && (
         <form onSubmit={sendCode} className="space-y-4">
-          <p className="text-center text-sm text-night-text-secondary">The number you use with Elevatia, or the one you text Sky from.</p>
-          <PhoneNumberInput onChange={setE164} />
+          <p className={`text-center text-sm ${muted}`}>The number you use with Elevatia, or the one you text Sky from.</p>
+          <PhoneNumberInput onChange={setE164} tone={tone} />
           <button type="submit" disabled={loading} className={primary}>{loading ? 'Sending' : 'Send code'}</button>
         </form>
       )}
 
       {method === 'phone' && codeSent && (
         <form onSubmit={verify} className="space-y-4">
-          <p className="text-center text-sm text-night-text-secondary">Enter the 6-digit code sent to {e164}</p>
+          <p className={`text-center text-sm ${muted}`}>Enter the 6-digit code sent to {e164}</p>
           <input
             type="text"
             inputMode="numeric"
@@ -151,20 +162,20 @@ export default function SignInForm() {
             placeholder="000000"
           />
           <button type="submit" disabled={loading || code.length !== 6} className={primary}>{loading ? 'Checking' : 'Sign in'}</button>
-          <button type="button" onClick={() => { setCodeSent(false); setCode(''); setConfirmation(null); }} className="w-full py-2 text-sm text-night-text-secondary hover:text-white">
+          <button type="button" onClick={() => { setCodeSent(false); setCode(''); setConfirmation(null); }} className={`w-full py-2 text-sm ${muted} hover:underline`}>
             Use a different number
           </button>
         </form>
       )}
 
       {method === 'apple' && (
-        <button type="button" disabled={loading} onClick={() => oauth(signInWithApple)} className="w-full rounded-full bg-white px-4 py-3 font-semibold text-black transition-colors hover:bg-white/90 disabled:opacity-50">
+        <button type="button" disabled={loading} onClick={() => oauth(signInWithApple)} className={oauthBtn}>
           {loading ? 'Opening Apple' : 'Continue with Apple'}
         </button>
       )}
 
       {method === 'google' && (
-        <button type="button" disabled={loading} onClick={() => oauth(signInWithGoogle)} className="w-full rounded-full bg-white px-4 py-3 font-semibold text-black transition-colors hover:bg-white/90 disabled:opacity-50">
+        <button type="button" disabled={loading} onClick={() => oauth(signInWithGoogle)} className={oauthBtn}>
           {loading ? 'Opening Google' : 'Continue with Google'}
         </button>
       )}
