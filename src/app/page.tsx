@@ -55,16 +55,19 @@ export default function Home() {
         <HeroVideo />
         <div className="container relative pb-24 pt-36">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
-            <h1 className="max-w-3xl text-left text-6xl font-bold leading-[1.02] tracking-tight text-white sm:text-7xl lg:text-8xl">
-              Your Fully Personalized
+            {/* Sized to the viewport so it reads as a poster on a desktop;
+                three short lines rather than one long one. */}
+            <h1 className="text-left text-[3.75rem] font-bold leading-[0.98] tracking-tight text-white sm:text-[5.5rem] lg:text-[clamp(6rem,8.6vw,8.75rem)]">
+              Your Fully
+              <span className="block">Personalized</span>
               <span className="block">Life Coach</span>
             </h1>
             {/* Two doors, stacked at the right: the app, or a text, and two
                 lines on what the coaching is like. */}
-            <div className="flex flex-col items-start gap-3 lg:items-end lg:text-right">
+            <div className="flex shrink-0 flex-col items-start gap-4 lg:items-end lg:text-right">
               <TextElevatiaButton number={process.env.NEXT_PUBLIC_ELEVATIA_TEXT_NUMBER ?? ''} variant="light" />
-              <AppStoreBadge />
-              <p className="mt-2 max-w-md text-lg leading-snug text-white/90">
+              <AppStoreBadge large />
+              <p className="mt-3 max-w-xl text-xl leading-snug text-white/90 sm:text-2xl">
                 Coaching that moves with your day.
                 <span className="block">Every nudge, one step closer to your goals.</span>
               </p>
