@@ -42,7 +42,7 @@ export default function TextElevatiaButton({
         href={href}
         className={
           variant === 'light'
-            ? 'inline-flex h-24 w-[324px] items-center justify-center gap-4 rounded-3xl bg-white px-8 text-[1.75rem] font-medium text-night shadow-lg transition-transform duration-300 hover:scale-105'
+            ? 'inline-flex h-24 items-center justify-center gap-4 whitespace-nowrap rounded-3xl bg-white px-9 text-[1.75rem] font-medium text-night shadow-lg transition-transform duration-300 hover:scale-105'
             : 'inline-flex items-center gap-3 rounded-full bg-bronze px-7 py-4 text-base font-semibold text-night shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-bronze-bright'
         }
       >

@@ -1,5 +1,5 @@
 import TextElevatiaButton from '@/components/marketing/TextElevatiaButton';
-import AppStoreBadge from '@/components/marketing/AppStoreBadge';
+import AppStoreIconButton from '@/components/marketing/AppStoreIconButton';
 import HeroVideo from '@/components/marketing/HeroVideo';
 import PhoneShowcase3D from '@/components/marketing/PhoneShowcase3D';
 import FeaturePanels, { type FeaturePanel } from '@/components/marketing/FeaturePanels';
@@ -54,7 +54,7 @@ export default function Home() {
       <section className="relative flex min-h-[100svh] items-center justify-center">
         <HeroVideo />
         <div className="container relative pb-24 pt-36">
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
             {/* Sized to the viewport so it reads as a poster on a desktop;
                 three short lines rather than one long one. */}
             <h1 className="text-left text-[3.75rem] font-bold leading-[0.98] tracking-tight text-white sm:text-[5.5rem] lg:text-[clamp(6rem,8.6vw,8.75rem)]">
@@ -65,8 +65,10 @@ export default function Home() {
             {/* Two doors, stacked at the right: the app, or a text, and two
                 lines on what the coaching is like. */}
             <div className="flex shrink-0 flex-col items-start gap-4 lg:items-end lg:text-right">
-              <TextElevatiaButton number={process.env.NEXT_PUBLIC_ELEVATIA_TEXT_NUMBER ?? ''} variant="light" label="Start improving" />
-              <AppStoreBadge width={324} />
+              <div className="flex flex-wrap items-center gap-4 lg:justify-end">
+                <TextElevatiaButton number={process.env.NEXT_PUBLIC_ELEVATIA_TEXT_NUMBER ?? ''} variant="light" label="Start improving" />
+                <AppStoreIconButton />
+              </div>
               <p className="mt-3 max-w-xl text-xl leading-snug text-white/90 sm:text-2xl">
                 Coaching that moves with your day.
                 <span className="block">Every nudge, one step closer to your goals.</span>
