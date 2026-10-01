@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import AppStoreBadge from './AppStoreBadge';
+import AppStoreIconButton from './AppStoreIconButton';
+import TextElevatiaButton from './TextElevatiaButton';
 
 export default function FinalCta() {
   return (
@@ -21,12 +22,16 @@ export default function FinalCta() {
             Ready to transform your wellness journey?
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg text-white/85">
-            Your healthiest, happiest self is one download away.
+            Your healthiest, happiest self is one text away.
           </p>
-          <div className="mt-10 flex flex-col items-center gap-4">
-            <AppStoreBadge large />
+          {/* The same two doors as the hero, so the page ends where it began. */}
+          <div className="mt-10 flex flex-col items-center gap-5">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+              <TextElevatiaButton number={process.env.NEXT_PUBLIC_ELEVATIA_TEXT_NUMBER ?? ''} variant="light" label="Start improving" />
+              <AppStoreIconButton />
+            </div>
             <p className="text-sm text-white/70">
-              Free to start &middot; Available on iOS &middot; Your data stays private
+              Free to start &middot; Your data stays private
             </p>
           </div>
         </div>
