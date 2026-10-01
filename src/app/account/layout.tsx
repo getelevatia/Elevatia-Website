@@ -14,7 +14,8 @@ function Gate({ children }: { children: ReactNode }) {
   const { user, loading } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
-  const isLogin = pathname === '/account/login';
+  // The login page and the one-tap link page both run signed out.
+  const isLogin = pathname === '/account/login' || pathname === '/account/link';
 
   useEffect(() => {
     if (!loading && !user && !isLogin) {
@@ -50,7 +51,7 @@ export default function AccountLayout({ children }: { children: ReactNode }) {
 function AccountNav() {
   const pathname = usePathname();
   const { user, signOut } = useAuth();
-  if (!user || pathname === '/account/login') return null;
+  if (!user || pathname === '/account/login' || pathname === '/account/link') return null;
   const items = [
     { href: '/account', label: 'Overview' },
     { href: '/account/imessage', label: 'Text Elevatia' },

@@ -45,6 +45,14 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Apple reads this without an extension and insists on JSON.
+        source: '/.well-known/apple-app-site-association',
+        headers: [
+          { key: 'Content-Type', value: 'application/json' },
+          { key: 'Cache-Control', value: 'public, max-age=3600' },
+        ],
+      },
+      {
         source: '/site.webmanifest',
         headers: [
           {

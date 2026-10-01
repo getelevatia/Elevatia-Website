@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["WJG54AMQC6.com.elevatia.app"],
+        "components": [
+          { "/": "/app/*", "comment": "Links from a text open the app on a screen" }
+        ]
+      }
+    ]
+  }
+}
