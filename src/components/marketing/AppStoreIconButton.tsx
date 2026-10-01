@@ -1,9 +1,9 @@
 /**
  * The App Store door as a single Apple mark, for a hero that already has a
  * primary button and no room for the full badge. Same height as the button
- * beside it, so the pair reads as one row.
+ * beside it at every width, so the pair reads as one row on a phone too.
  */
-export default function AppStoreIconButton({ size = 96 }: { size?: number }) {
+export default function AppStoreIconButton() {
   return (
     <a
       href="https://apps.apple.com/us/app/elevatia/id6747624957"
@@ -11,10 +11,9 @@ export default function AppStoreIconButton({ size = 96 }: { size?: number }) {
       rel="noopener noreferrer"
       aria-label="Download on the App Store"
       title="Download on the App Store"
-      className="inline-flex shrink-0 items-center justify-center rounded-3xl bg-white text-night shadow-lg transition-transform duration-300 hover:scale-105"
-      style={{ width: size, height: size }}
+      className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white text-night shadow-lg transition-transform duration-300 hover:scale-105 sm:h-24 sm:w-24 sm:rounded-3xl"
     >
-      <svg width={Math.round(size * 0.46)} height={Math.round(size * 0.46)} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <svg className="h-6 w-6 sm:h-11 sm:w-11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
       </svg>
     </a>

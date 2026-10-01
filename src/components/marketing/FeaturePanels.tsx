@@ -25,7 +25,7 @@ function PanelRow({ panel, flip }: { panel: FeaturePanel; flip: boolean }) {
   return (
     <div
       ref={rowRef}
-      className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-20"
+      className="grid grid-cols-1 items-center gap-6 sm:gap-10 lg:grid-cols-2 lg:gap-20"
     >
       <div className={flip ? 'lg:order-2' : ''}>
         <Eyebrow>{panel.eyebrow}</Eyebrow>
@@ -55,7 +55,7 @@ export default function FeaturePanels({ panels }: { panels: FeaturePanel[] }) {
   return (
     <section className="section-padding relative">
       <div className="container">
-        <div className="mx-auto max-w-6xl space-y-28 lg:space-y-40">
+        <div className="mx-auto max-w-6xl space-y-16 sm:space-y-28 lg:space-y-40">
           {panels.map((panel, i) => (
             <PanelRow key={panel.eyebrow} panel={panel} flip={i % 2 === 1} />
           ))}

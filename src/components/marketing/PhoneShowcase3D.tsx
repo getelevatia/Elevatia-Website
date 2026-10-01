@@ -1,27 +1,20 @@
 'use client';
 
-import { useRef } from 'react';
 import Image from 'next/image';
-import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import Eyebrow from './Eyebrow';
 
 /**
- * The app's today screen in a framed phone, upright, with a gentle
- * fade-and-rise entrance as the section scrolls into view.
+ * The app's today screen in a framed phone, upright, rising and fading in
+ * once it is on screen. Keyed to visibility rather than scroll position: a
+ * scroll-linked fade left a screen of black on phones, where the section
+ * is tall and the image sits at its foot.
  */
 export default function PhoneShowcase3D() {
-  const sectionRef = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'center center'],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [60, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [0, 1]);
-
   return (
-    <section ref={sectionRef} className="section-padding-large relative">
+    <section className="section-padding-large relative">
       <div className="container">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div className="text-center lg:text-left">
@@ -35,7 +28,13 @@ export default function PhoneShowcase3D() {
             </p>
           </div>
           <div className="flex justify-center">
-            <motion.div style={reduced ? undefined : { y, opacity }} className="relative">
+            <motion.div
+              className="relative"
+              initial={reduced ? false : { opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+            >
               <Image
                 src="/media/phone-today-7.png"
                 alt="Elevatia today screen with the Daily Sow"

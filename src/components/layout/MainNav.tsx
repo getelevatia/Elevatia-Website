@@ -16,7 +16,7 @@ export default function MainNav() {
   }
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-night/55 px-4 py-3 backdrop-blur-md sm:px-6">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
         <Logo />
         <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-night/70 px-2 py-1.5 shadow-lg backdrop-blur-md sm:flex">

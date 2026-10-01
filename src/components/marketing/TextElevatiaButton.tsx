@@ -42,11 +42,11 @@ export default function TextElevatiaButton({
         href={href}
         className={
           variant === 'light'
-            ? 'inline-flex h-24 items-center justify-center gap-4 whitespace-nowrap rounded-3xl bg-white px-9 text-[1.75rem] font-medium text-night shadow-lg transition-transform duration-300 hover:scale-105'
+            ? 'inline-flex h-14 items-center justify-center gap-3 whitespace-nowrap rounded-2xl bg-white px-5 text-lg font-medium text-night shadow-lg transition-transform duration-300 hover:scale-105 sm:h-24 sm:gap-4 sm:rounded-3xl sm:px-9 sm:text-[1.75rem]'
             : 'inline-flex items-center gap-3 rounded-full bg-bronze px-7 py-4 text-base font-semibold text-night shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-bronze-bright'
         }
       >
-        <MessagesIcon size={variant === 'light' ? 44 : 24} />
+        <MessagesIcon size={variant === 'light' ? 44 : 24} className={variant === 'light' ? 'h-6 w-6 sm:h-11 sm:w-11' : ''} />
         {label}
       </a>
       {isIOS === false && variant !== 'light' && (
