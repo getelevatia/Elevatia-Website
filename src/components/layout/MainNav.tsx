@@ -16,7 +16,7 @@ export default function MainNav() {
   }
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-night/55 px-4 py-3 backdrop-blur-md sm:px-6">
+    <nav className="fixed inset-x-0 top-0 z-50 px-4 pt-5 sm:px-8">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
         <Logo />
         <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-night/70 px-2 py-1.5 shadow-lg backdrop-blur-md sm:flex">
@@ -34,18 +34,18 @@ export default function MainNav() {
           ))}
         </div>
         {/* Login and sign up, top right, in a modal over the page. */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => setAuth('signin')}
-            className="rounded-full border border-white/15 bg-night/70 px-4 py-2 text-sm font-medium text-white backdrop-blur-md transition-colors hover:bg-white/10"
+            className="rounded-2xl border border-white/10 bg-night/60 px-7 py-3.5 text-lg font-medium text-white backdrop-blur-sm transition-colors hover:bg-night/80 sm:px-8"
           >
             Login
           </button>
           <button
             type="button"
             onClick={() => setAuth('signup')}
-            className="rounded-full bg-white px-4 py-2 text-sm font-medium text-night transition-colors hover:bg-white/90"
+            className="rounded-2xl bg-white px-7 py-3.5 text-lg font-medium text-night transition-colors hover:bg-white/90 sm:px-8"
           >
             Sign up
           </button>
