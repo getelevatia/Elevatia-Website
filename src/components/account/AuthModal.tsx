@@ -66,7 +66,7 @@ export default function AuthModal({
         <div className="mt-6">
           <AuthProvider scope="consumer">
             <Suspense fallback={null}>
-              <SignInForm tone="light" />
+              <SignInForm tone="light" onDone={onClose} />
             </Suspense>
           </AuthProvider>
         </div>

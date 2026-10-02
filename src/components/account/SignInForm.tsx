@@ -14,7 +14,7 @@ type Method = 'phone' | 'apple' | 'google' | 'email';
  * Elevatia have a phone number and nothing else. Apple, Google and email cover
  * everyone who signed up in the app.
  */
-export default function SignInForm({ tone = 'night' }: { tone?: 'night' | 'light' }) {
+export default function SignInForm({ tone = 'night', onDone }: { tone?: 'night' | 'light'; onDone?: () => void }) {
   const router = useRouter();
   const params = useSearchParams();
   const next = params.get('next') || '/account';
@@ -44,7 +44,10 @@ export default function SignInForm({ tone = 'night' }: { tone?: 'night' | 'light
     };
   }, [method]);
 
-  const done = () => router.replace(next);
+  const done = () => {
+    onDone?.();
+    router.replace(next);
+  };
   const fail = (msg: string) => {
     setError(msg);
     setLoading(false);
@@ -137,7 +140,11 @@ export default function SignInForm({ tone = 'night' }: { tone?: 'night' | 'light
         {tab('email', 'Email')}
       </div>
 
-      {error && <div className="rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">{error}</div>}
+      {error && (
+        <div className={`rounded-xl border px-4 py-3 text-sm ${light ? 'border-red-300 bg-red-50 text-red-700' : 'border-red-400/30 bg-red-500/10 text-red-200'}`}>
+          {error}
+        </div>
+      )}
 
       {method === 'phone' && !codeSent && (
         <form onSubmit={sendCode} className="space-y-4">
